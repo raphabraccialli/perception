@@ -2,12 +2,46 @@
 #include "opencv2/opencv.hpp"
 #include <iostream>
 #include <stdlib.h>
+#include <fstream>
+#include <iterator>
+#include <string>
+#include <vector>
  
 using namespace std;
 using namespace cv;
+
+vector<int> posX, posY;
+bool flag = false;
+
+void CallBackFunc(int event, int x, int y, int flags, void* userdata)
+{
+    if  ( event == EVENT_LBUTTONDOWN )
+    {
+        cout << "Left button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+        flag = true;
+        posX.push_back(x);
+        posY.push_back(y);
+    }
+    else if  ( event == EVENT_RBUTTONDOWN )
+    {
+        cout << "Right button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+        flag = true;
+        posX.push_back(-1);
+        posY.push_back(-1);
+    }
+    /*else if  ( event == EVENT_MBUTTONDOWN )
+    {
+        cout << "Middle button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+    }
+    else if ( event == EVENT_MOUSEMOVE )
+    {
+        cout << "Mouse move over the window - position (" << x << ", " << y << ")" << endl;
+    }*/    
+}
  
 int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
-  int fps, fps_new, skip, fr_period; 
+  int fps, fps_new, skip, fr_period;
+  bool stop = false;
 
   // Create a VideoCapture object and open the input file
   // If the input is the web camera, pass 0 instead of the video file name
@@ -24,6 +58,7 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
     cout << "Error opening video stream or file" << endl;
     return -1;
   }
+
      
   while(1){
  
@@ -34,20 +69,62 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
     // If the frame is empty, break immediately
     if (frame.empty())
       break;
+
+  	//Create a window
+    namedWindow("Frame", 1);
+
+    setMouseCallback("Frame", CallBackFunc, NULL);
  
     // Display the resulting frame
-    imshow( "Frame", frame );
+    imshow("Frame", frame );
  
     // Press  ESC on keyboard to exit
     //Wait 1000/fps_new ms 
-    char c=(char)waitKey(fr_period);
-    if(c==27)
-      break;
+    //char c=(char)waitKey(fr_period);
+    //if(c==27)
+    //  break;
+
+  	while(!flag){
+  		char c=(char)waitKey(50);
+	    if(c==27){
+	    	stop = true;
+	    	break;
+	    }
+  	}
+  	flag = false;
+
+  	if(stop)
+  		break;
 
 	for(int i=0; i < skip; i++)
 		cap >> frame;
   }
-  
+
+  	vector<int>::iterator itX, itY;  
+
+	ofstream myfile("position.txt");
+	if(myfile.is_open()){
+
+		itX = posX.begin();
+		itY = posY.begin();
+		while(itX!=posX.end()){
+			myfile << (*itX) << endl;
+			myfile << (*itY) << endl;
+			itX++;
+			itY++;
+		}
+
+		//for(it=posX.begin(); it!=posX.end(); it++){
+  		//	myfile << (*it) << endl;
+  		//}
+  		//for(it=posY.begin(); it!=posY.end(); it++){
+  		//	myfile << (*it) << endl;
+  		//}
+  		myfile.close();
+	}
+	else
+		cout << "Not possible to open the file." << endl;
+
   // When everything done, release the video capture object
   cap.release();
  
