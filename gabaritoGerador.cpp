@@ -102,7 +102,12 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 
   	vector<int>::iterator itX, itY;  
 
-	ofstream myfile("position.txt");
+	ofstream myfile(argv[3]);
+
+	//Saves FPS
+	myfile << fps_new << endl;
+
+
 	if(myfile.is_open()){
 
 		itX = posX.begin();
@@ -114,12 +119,6 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 			itY++;
 		}
 
-		//for(it=posX.begin(); it!=posX.end(); it++){
-  		//	myfile << (*it) << endl;
-  		//}
-  		//for(it=posY.begin(); it!=posY.end(); it++){
-  		//	myfile << (*it) << endl;
-  		//}
   		myfile.close();
 	}
 	else
