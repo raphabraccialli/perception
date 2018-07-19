@@ -6,6 +6,9 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+using namespace cv;
+
 class quaternaryMask
 {
 public:
@@ -13,7 +16,9 @@ public:
 
 	int blackVMax, whiteVMin, greenHVar;
 
+	Mat blackMask, whiteMask, greenMask;
+
 	void setMask(int blackVMax, int whiteVMin, int greenHVar);
-	void generateMask();
+	void generateMask(cv::Mat image);
 	
 };

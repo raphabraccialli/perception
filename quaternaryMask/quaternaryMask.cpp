@@ -1,13 +1,29 @@
 #include "quaternaryMask.hpp"
 
-using namespace std;
-using namespace cv;
+#define DEBUG 1
 
 void quaternaryMask::setMask(int blackVMax, int whiteVMin, int greenHVar){
-
+	this->blackVMax = blackVMax;
+	this->whiteVMin = whiteVMin;
+	this->greenHVar = greenHVar;
 }
 
-void quaternaryMask::generateMask(){
+void quaternaryMask::generateMask(Mat frame){
+	// Converts to HSV colorspace
+	cvtColor(frame, frame, COLOR_BGR2HSV);
+
+// As each pixel is going to be classified in one of four categories
+  	// we start by detecting the easiest one so we can move to more difficult ones later
+  	// We should go: white, green, black, others (left)
+
+	// White Threshold
+	inRange(frame, Scalar(0, 0, whiteVMin), Scalar(255, 20, 255), this->whiteMask);
+
+	// Green Threshold
+	inRange(frame, Scalar(80-greenHVar, 20, 60), Scalar(80+greenHVar, 255, 255), this->greenMask);
+
+	// Black Threshold
+	inRange(frame, Scalar(0, 0, 0), Scalar(255, 255, blackVMax), this->blackMask);
 	 
 }
 
@@ -23,15 +39,16 @@ int main(int argc, char *argv[]){
     	return -1;
   	}
 
+
+  	Mat frame, blackMaskDilated;
+
   	// Creates and sets values to mask
 	quaternaryMask mask;
-	mask.setMask(10, 10, 10);
+	mask.setMask(80, 180, 10);
 
-	// Creates the matrix
-	Mat frame, blackMask, blackDilatedMask, whiteMask, greenMask, ballMask;
 
-	int size = 4;
-	int size2 = 8;
+	int size = 8;
+	int size2 = 15;
 	Mat element = getStructuringElement( MORPH_RECT,
                                      Size( 2*size + 1, 2*size+1 ),
                                      Point( size, size ) );
@@ -49,40 +66,36 @@ int main(int argc, char *argv[]){
 		cap >> frame;
 		cap >> frame;
 
+	  	mask.generateMask(frame);
+
+		#ifdef DEBUGa
+			imshow("Result RGB", frame);
+			imshow("this->whiteMask", mask.whiteMask);
+			imshow("this->greenMask", mask.greenMask);
+			imshow("this->blackMask", mask.blackMask);
+		#endif
+
 		imshow("Result RGB", frame);
+		dilate(mask.greenMask, mask.greenMask, element2);
+		bitwise_not(mask.greenMask, mask.greenMask);
+		imshow("Result greenDilatedNOT", mask.greenMask);
+		bitwise_and(mask.blackMask, mask.greenMask, mask.blackMask);
+		dilate(mask.blackMask, blackMaskDilated, element);
+		bitwise_and(blackMaskDilated, mask.whiteMask, frame);
+		//bitwise_or(mask.blackMask, frame, frame);
+		imshow("Result test", frame);
 
-	  	cvtColor(frame, frame, cv::COLOR_BGR2HSV);
-
-	  	// As each pixel is going to be classified in one of four categories
-	  	// we start by detecting the easiest one so we can move to more difficult ones later
-	  	// We should go: white, green, black, others (left)
-
-	  	
-
-		// White Threshold
-		inRange(frame, Scalar(0, 0, 200), Scalar(255, 40, 255), whiteMask);
-		erode(whiteMask, whiteMask, element);
-		dilate(whiteMask, whiteMask, element);
-		imshow("whiteMask", whiteMask);
-
-		// Green Threshold
-		inRange(frame, Scalar(40, 10, 0), Scalar(120, 255, 255), greenMask);
-		erode(greenMask, greenMask, element);
-		dilate(greenMask, greenMask, element);
-		imshow("greenMask", greenMask);
-	
-
-		// Black Threshold
-		inRange(frame, Scalar(0, 0, 0), Scalar(255, 150, 50), blackMask);
-		erode(blackMask, blackMask, element);
-		dilate(blackMask, blackMask, element2);
-		imshow("blackMask", blackMask);
-
-	  	waitKey(0);
-
-	  	// If the frame is empty, break immediately
-	    if (frame.empty())
+	  	char c=(char)waitKey(0);
+	  	// If the frame is empty or esc, break immediately
+	    if (frame.empty() || c == 27)
 	      break;
 	}
+
+	cap.release();
+ 
+  // Closes all the frames
+  destroyAllWindows();
+     
+  return 0;
 
 }
