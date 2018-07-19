@@ -30,11 +30,14 @@ int main(int argc, char *argv[]){
 	// Creates the matrix
 	Mat frame, blackMask, blackDilatedMask, whiteMask, greenMask, ballMask;
 
-	int erosion_size = 4;
-	int erosion_size2 = 4;
+	int size = 4;
+	int size2 = 8;
 	Mat element = getStructuringElement( MORPH_RECT,
-                                     Size( 2*erosion_size + 1, 2*erosion_size+1 ),
-                                     Point( erosion_size, erosion_size ) );
+                                     Size( 2*size + 1, 2*size+1 ),
+                                     Point( size, size ) );
+	Mat element2 = getStructuringElement( MORPH_RECT,
+                                     Size( 2*size2 + 1, 2*size2+1 ),
+                                     Point( size2, size2 ) );
 
 	
 
@@ -52,26 +55,28 @@ int main(int argc, char *argv[]){
 
 	  	// As each pixel is going to be classified in one of four categories
 	  	// we start by detecting the easiest one so we can move to more difficult ones later
-	  	// We should go: black, white, green, others (left)
+	  	// We should go: white, green, black, others (left)
 
-	  	// Black Threshold
-		inRange(frame, Scalar(0, 0, 0), Scalar(255, 150, 50), blackMask);
-		//imshow("blackMask", blackMask);
-		dilate(blackMask, blackDilatedMask, element);
-		imshow("blackMaskEroded", blackDilatedMask);
+	  	
 
 		// White Threshold
 		inRange(frame, Scalar(0, 0, 200), Scalar(255, 40, 255), whiteMask);
-		//imshow("whiteMask", whiteMask);
-		// whiteMask = whiteMask and ~blackMask
-		bitwise_and(whiteMask, blackDilatedMask, ballMask);
+		erode(whiteMask, whiteMask, element);
+		dilate(whiteMask, whiteMask, element);
+		imshow("whiteMask", whiteMask);
 
 		// Green Threshold
 		inRange(frame, Scalar(40, 10, 0), Scalar(120, 255, 255), greenMask);
-		//imshow("greenMask", greenMask);
-		dilate(ballMask, ballMask, erosion_size2);
-		imshow("contraste preto/branco", ballMask);
+		erode(greenMask, greenMask, element);
+		dilate(greenMask, greenMask, element);
+		imshow("greenMask", greenMask);
 	
+
+		// Black Threshold
+		inRange(frame, Scalar(0, 0, 0), Scalar(255, 150, 50), blackMask);
+		erode(blackMask, blackMask, element);
+		dilate(blackMask, blackMask, element2);
+		imshow("blackMask", blackMask);
 
 	  	waitKey(0);
 
