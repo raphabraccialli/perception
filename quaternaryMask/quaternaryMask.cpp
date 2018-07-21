@@ -2,9 +2,9 @@
 
 #define DEBUG 1
 
-void quaternaryMask::setMask(int blackVMax, int whiteVMin, int greenHMean, int greenHVar, int greenSMin){
-	this->blackVMax = blackVMax;
-	this->whiteVMin = whiteVMin;
+void quaternaryMask::setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin){
+	this->blackLMax = blackLMax;
+	this->whiteLMin = whiteLMin;
 	this->greenHMean = greenHMean;
 	this->greenHVar = greenHVar;
 	this->greenSMin = greenSMin;
@@ -22,13 +22,13 @@ void quaternaryMask::generateMask(Mat frame){
   	// We should go: white, green, black, others (left)
 
 	// White Threshold
-	inRange(frame, Scalar(0, whiteVMin, 0), Scalar(255, 255, 255), this->whiteMask);
+	inRange(frame, Scalar(0, whiteLMin, 0), Scalar(255, 255, 255), this->whiteMask);
 
 	// Green Threshold
-	inRange(frame, Scalar(greenHMean-greenHVar, blackVMax, greenSMin), Scalar(greenHMean+greenHVar, whiteVMin, 255), this->greenMask);
+	inRange(frame, Scalar(greenHMean-greenHVar, blackLMax, greenSMin), Scalar(greenHMean+greenHVar, whiteLMin, 255), this->greenMask);
 
 	// Black Threshold
-	inRange(frame, Scalar(0, 0, 0), Scalar(255, blackVMax, 255), this->blackMask);
+	inRange(frame, Scalar(0, 0, 0), Scalar(255, blackLMax, 255), this->blackMask);
 	 
 }
 
@@ -49,8 +49,9 @@ int main(int argc, char *argv[]){
 
   	// Creates and sets values to mask
 	quaternaryMask mask;
-	//setMask(int blackVMax, int whiteVMin, int greenHMean, int greenHVar, int greenSMin)
-	mask.setMask(70, 180, 100, 60, 70);
+	//setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin)
+	mask.setMask(70, 180, 127, 127, 0);
+	//para detecção de bola, greenHMean e greenHVar = 127 desativa detecção de verde (vai abranger toadas cores de L médio)
 
 
 	int size = 8;
