@@ -2,28 +2,33 @@
 
 #define DEBUG 1
 
-void quaternaryMask::setMask(int blackVMax, int whiteVMin, int greenHVar){
+void quaternaryMask::setMask(int blackVMax, int whiteVMin, int greenHMean, int greenHVar, int greenSMin){
 	this->blackVMax = blackVMax;
 	this->whiteVMin = whiteVMin;
+	this->greenHMean = greenHMean;
 	this->greenHVar = greenHVar;
+	this->greenSMin = greenSMin;
+	
 }
 
 void quaternaryMask::generateMask(Mat frame){
+	Mat maskHLS;
+
 	// Converts to HSV colorspace
-	cvtColor(frame, frame, COLOR_BGR2HSV);
+	cvtColor(frame, maskHLS, COLOR_BGR2HLS);
 
 // As each pixel is going to be classified in one of four categories
   	// we start by detecting the easiest one so we can move to more difficult ones later
   	// We should go: white, green, black, others (left)
 
 	// White Threshold
-	inRange(frame, Scalar(0, 0, whiteVMin), Scalar(255, 20, 255), this->whiteMask);
+	inRange(frame, Scalar(0, whiteVMin, 0), Scalar(255, 255, 255), this->whiteMask);
 
 	// Green Threshold
-	inRange(frame, Scalar(80-greenHVar, 20, 60), Scalar(80+greenHVar, 255, 255), this->greenMask);
+	inRange(frame, Scalar(greenHMean-greenHVar, blackVMax, greenSMin), Scalar(greenHMean+greenHVar, whiteVMin, 255), this->greenMask);
 
 	// Black Threshold
-	inRange(frame, Scalar(0, 0, 0), Scalar(255, 255, blackVMax), this->blackMask);
+	inRange(frame, Scalar(0, 0, 0), Scalar(255, blackVMax, 255), this->blackMask);
 	 
 }
 
@@ -40,11 +45,12 @@ int main(int argc, char *argv[]){
   	}
 
 
-  	Mat frame, blackMaskDilated;
+  	Mat frame, toMask;
 
   	// Creates and sets values to mask
 	quaternaryMask mask;
-	mask.setMask(80, 180, 10);
+	//setMask(int blackVMax, int whiteVMin, int greenHMean, int greenHVar, int greenSMin)
+	mask.setMask(70, 180, 100, 60, 70);
 
 
 	int size = 8;
@@ -68,13 +74,13 @@ int main(int argc, char *argv[]){
 
 	  	mask.generateMask(frame);
 
-		#ifdef DEBUGa
+		#ifdef DEBUG
 			imshow("Result RGB", frame);
 			imshow("this->whiteMask", mask.whiteMask);
 			imshow("this->greenMask", mask.greenMask);
 			imshow("this->blackMask", mask.blackMask);
 		#endif
-
+/*
 		imshow("Result RGB", frame);
 		dilate(mask.greenMask, mask.greenMask, element2);
 		bitwise_not(mask.greenMask, mask.greenMask);
@@ -84,6 +90,8 @@ int main(int argc, char *argv[]){
 		bitwise_and(blackMaskDilated, mask.whiteMask, frame);
 		//bitwise_or(mask.blackMask, frame, frame);
 		imshow("Result test", frame);
+
+*/
 
 	  	char c=(char)waitKey(0);
 	  	// If the frame is empty or esc, break immediately
