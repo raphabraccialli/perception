@@ -50,11 +50,11 @@ int main(int argc, char *argv[]){
   	// Creates and sets values to mask
 	quaternaryMask mask;
 	//setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin)
-	mask.setMask(70, 180, 127, 127, 0);
+	mask.setMask(60, 180, 127, 127, 0);
 	//para detecção de bola, greenHMean e greenHVar = 127 desativa detecção de verde (vai abranger toadas cores de L médio)
 
 
-	int size = 8;
+	int size = 4;
 	int size2 = 15;
 	Mat element = getStructuringElement( MORPH_RECT,
                                      Size( 2*size + 1, 2*size+1 ),
@@ -75,24 +75,24 @@ int main(int argc, char *argv[]){
 
 	  	mask.generateMask(frame);
 
-		#ifdef DEBUG
+		#ifdef DEBUGa
 			imshow("Result RGB", frame);
 			imshow("this->whiteMask", mask.whiteMask);
 			imshow("this->greenMask", mask.greenMask);
 			imshow("this->blackMask", mask.blackMask);
 		#endif
-/*
+
 		imshow("Result RGB", frame);
-		dilate(mask.greenMask, mask.greenMask, element2);
-		bitwise_not(mask.greenMask, mask.greenMask);
-		imshow("Result greenDilatedNOT", mask.greenMask);
-		bitwise_and(mask.blackMask, mask.greenMask, mask.blackMask);
-		dilate(mask.blackMask, blackMaskDilated, element);
-		bitwise_and(blackMaskDilated, mask.whiteMask, frame);
+		//dilate(mask.greenMask, mask.greenMask, element2);
+		//bitwise_not(mask.greenMask, mask.greenMask);
+		//imshow("Result greenDilatedNOT", mask.greenMask);
+		//bitwise_and(mask.blackMask, mask.greenMask, mask.blackMask);
+		dilate(mask.blackMask, mask.blackMask, element2);
+		bitwise_and(mask.blackMask, mask.whiteMask, frame);
 		//bitwise_or(mask.blackMask, frame, frame);
 		imshow("Result test", frame);
 
-*/
+
 
 	  	char c=(char)waitKey(0);
 	  	// If the frame is empty or esc, break immediately
