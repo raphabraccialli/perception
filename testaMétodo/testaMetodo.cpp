@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
 
 	string linex, liney, linegx, linegy;
 
-	int frames = 0, acertos = 0;
+	int frames = 0, acertos = 0, f_pos = 0, f_neg = 0;
 	float resultado;
 
 	//Armazena os arquivos em variáveis.
@@ -32,6 +32,12 @@ int main(int argc, char* argv[]){
 			if(linex == linegx && liney == linegy){				
 				acertos++;
 			}
+			else if(linex == "-1" && linegx != "-1"){
+				f_neg++;
+			}
+			else if(linex != "-1" && linegx == "-1"){
+				f_pos++;
+			}
 			frames++;
 		}
 
@@ -40,7 +46,14 @@ int main(int argc, char* argv[]){
 
 		//Calcula a porcentagem de acertos e mostra na tela.
 		resultado = (acertos*1.0/frames)*100;
-		cout << resultado << endl;
+		cout << "Porcentagem de acerto: " << resultado << endl;
+
+		//Calcula a porcentagem de falsos positivos e falsos negativos e mostra na tela
+		f_pos = (f_pos*1.0/frames)*100;
+		f_neg = (f_neg*1.0/frames)*100;
+
+		cout << "Falsos positivos: "<< f_pos << endl;
+		cout << "Falsos negativos: "<< f_neg << endl;
 	}
 
 	else{
