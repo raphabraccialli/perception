@@ -13,7 +13,7 @@ class houghCirclesContrast
 {
 public:
 	houghCirclesContrast(){}
-
+	//definir atributos com parametros e fazer atribuição no construtor
 	Point run(Mat frame);
 
 };
