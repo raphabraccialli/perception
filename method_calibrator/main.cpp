@@ -17,9 +17,11 @@ int main(int argc, char *argv[]){
 
     Mat frame;
     Point p;
+    houghCirclesContrast hough;
+    //instanciar metodo da livia // le arquivo no construtor(arquivo, a, b)
 
     while(1){
-        // Captures a frame
+        // Captures a frame and skip some
         int i=0;
         bool breaker=false;
         while(i<5){
@@ -30,18 +32,25 @@ int main(int argc, char *argv[]){
             }
             i++;
         }
-
         if(breaker)
             break;
 
-
-        houghCirclesContrast hough;
-
+        //find best circle
         p = hough.run(frame);
+
+        //passa ponto pro metodo da livia
+        //retorna bool 
 
         if(p.x != -1){
             Point center(p.x, p.y);
             // circle center
+            /*if(bool da livia){
+                circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
+            }else{
+                circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
+            }
+
+            */
             circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
         }
         imshow("frame", frame);
