@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/livia/nao/workspace/perception/method_calibrator/testaMetodo.cpp
-testaMetodo.hpp
-/home/livia/nao/workspace/perception/method_calibrator/testaMetodo.hpp
-
-/home/livia/nao/workspace/perception/method_calibrator/testaMetodo.hpp
+/home/raphael/nao/workspace/perception/method_calibrator/houghCirclesContrast.h
+opencv2/opencv.hpp
+-
 iostream
 -
 stdlib.h
@@ -23,9 +21,27 @@ string
 -
 vector
 -
-cmath
--
+
+/home/raphael/nao/workspace/perception/method_calibrator/main.cpp
+quaternaryMask.h
+/home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h
+houghCirclesContrast.h
+/home/raphael/nao/workspace/perception/method_calibrator/houghCirclesContrast.h
+
+/home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h
 opencv2/opencv.hpp
+/home/raphael/nao/workspace/perception/method_calibrator/opencv2/opencv.hpp
+iostream
+-
+stdlib.h
+-
+fstream
+-
+iterator
+-
+string
+-
+vector
 -
 
 /usr/local/include/opencv2/calib3d/calib3d.hpp

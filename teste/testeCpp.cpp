@@ -1,5 +1,4 @@
-#include "opencv2/imgproc.hpp"
-#include "opencv2/highgui.hpp"
+#include "opencv2/opencv.hpp"
 #include <iostream>
 using namespace cv;
 const int max_value_H = 360/2;
@@ -41,7 +40,7 @@ static void on_high_S_thresh_trackbar(int, void *)
 int main(int argc, char* argv[])
 {
     //VideoCapture cap(argc > 1 ? argv[1] : 0);
-    VideoCapture cap(argc > 1 ? atoi(argv[1]) : 0);
+    VideoCapture cap("../LARC_2017_BOTCAM.avi");
     namedWindow(window_capture_name);
     namedWindow(window_detection_name);
     // Trackbars to set thresholds for HSV values

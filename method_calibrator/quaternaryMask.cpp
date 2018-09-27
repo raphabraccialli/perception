@@ -22,12 +22,12 @@ void quaternaryMask::generateMask(Mat frame){
     // We should go: white, green, black, others (left)
 
     // White Threshold
-    inRange(frame, Scalar(0, whiteLMin, 0), Scalar(255, 255, 255), this->whiteMask);
+    inRange(maskHLS, Scalar(0, whiteLMin, 0), Scalar(255, 255, 255), this->whiteMask);
 
     // Green Threshold
-    inRange(frame, Scalar(greenHMean-greenHVar, blackLMax, greenSMin), Scalar(greenHMean+greenHVar, whiteLMin, 255), this->greenMask);
+    inRange(maskHLS, Scalar(greenHMean-greenHVar, blackLMax, greenSMin), Scalar(greenHMean+greenHVar, whiteLMin, 255), this->greenMask);
 
     // Black Threshold
-    inRange(frame, Scalar(0, 0, 0), Scalar(255, blackLMax, 255), this->blackMask);
+    inRange(maskHLS, Scalar(0, 0, 0), Scalar(255, blackLMax, 255), this->blackMask);
 
 }

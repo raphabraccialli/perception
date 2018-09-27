@@ -17,7 +17,8 @@ Point houghCirclesContrast::run(Mat frame){
     Mat grad_x, grad_y;
     Mat abs_grad_x, abs_grad_y;
 
-    Mat grad;GaussianBlur( frame, gray, Size(3,3), 0, 0, BORDER_DEFAULT );
+    Mat grad;
+    GaussianBlur( frame, gray, Size(3,3), 0, 0, BORDER_DEFAULT );
     cvtColor(gray, gray, COLOR_BGR2GRAY);
 
     /// Gradient X

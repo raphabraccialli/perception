@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/method_calibrator.dir/main.cpp.o"
   "CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o"
-  "CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
   "CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o"
+  "CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
   "method_calibrator.pdb"
   "method_calibrator"
 )

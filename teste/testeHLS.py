@@ -56,7 +56,7 @@ def on_high_S_thresh_trackbar(val):
 parser = argparse.ArgumentParser(description='Code for Thresholding Operations using inRange tutorial.')
 parser.add_argument('--camera', help='Camera devide number.', default=0, type=int)
 args = parser.parse_args()
-cap = cv.VideoCapture(args.camera)
+cap = cv.VideoCapture('../LARC_2017_BOTCAM.avi')
 cv.namedWindow(window_capture_name)
 cv.namedWindow(window_detection_name)
 cv.createTrackbar(low_H_name, window_detection_name , low_H, max_value_H, on_low_H_thresh_trackbar)
@@ -77,6 +77,6 @@ while True:
     cv.imshow(window_capture_name, frame)
     cv.imshow(window_detection_name, frame_threshold)
     
-    key = cv.waitKey(30)
+    key = cv.waitKey(0)
     if key == ord('q') or key == 27:
         break

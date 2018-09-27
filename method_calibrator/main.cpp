@@ -18,6 +18,11 @@ int main(int argc, char *argv[]){
     Mat frame;
     Point p;
     houghCirclesContrast hough;
+
+    quaternaryMask Mask;
+    Mask.setMask(50, 200, 60, 30, 10);
+
+
     //instanciar metodo da livia // le arquivo no construtor(arquivo, a, b)
 
     while(1){
@@ -36,7 +41,8 @@ int main(int argc, char *argv[]){
             break;
 
         //find best circle
-        p = hough.run(frame);
+        //p = hough.run(frame);
+        Mask.generateMask(frame);
 
         //passa ponto pro metodo da livia
         //retorna bool 
@@ -54,6 +60,7 @@ int main(int argc, char *argv[]){
             circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
         }
         imshow("frame", frame);
+        imshow("mask", Mask.greenMask);
 
 
         char c=(char)waitKey(0);
