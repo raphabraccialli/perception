@@ -18,7 +18,10 @@ class houghCirclesContrast
 public:
     houghCirclesContrast();
 
-    Point run(Mat frame);
+    double dp, minDist, param1, param2;
+    int maxRadius, minRadius;
+
+    vector<Vec3f> run(Mat frame);
 };
 
 #endif // HOUGHCIRCLESCONTRAST_H

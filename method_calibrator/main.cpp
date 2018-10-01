@@ -1,6 +1,5 @@
 #include "quaternaryMask.h"
 #include "houghCirclesContrast.h"
-#include "bhuman_ish.h"
 
 int main(int argc, char *argv[]){
 
@@ -17,15 +16,11 @@ int main(int argc, char *argv[]){
 
 
     Mat frame;
-    Point p;
+    vector<Vec3f> circles;
     houghCirclesContrast hough;
 
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10);
-
-    bhuman_ish Blob;
-    vector<KeyPoint> keypoints;
-    Mat blobMask;
 
 
     //instanciar metodo da livia // le arquivo no construtor(arquivo, a, b)
@@ -46,17 +41,11 @@ int main(int argc, char *argv[]){
             break;
 
         //find best circle
-        //p = hough.run(frame);
+        circles = hough.run(frame);
         Mask.generateMask(frame);
-        keypoints = Blob.run(Mask.whiteMask);
-        drawKeypoints( frame, keypoints, blobMask, Scalar(0,0,255), DrawMatchesFlags::DRAW_RICH_KEYPOINTS );
-        
-        //passa ponto pro metodo da livia
-        //retorna bool 
 
-        if(p.x != -1){
-            Point center(p.x, p.y);
-            // circle center
+        for( size_t i = 0; i < circles.size(); i++ )
+        {
             /*if(bool da livia){
                 circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
             }else{
@@ -64,10 +53,19 @@ int main(int argc, char *argv[]){
             }
 
             */
-            circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
+            Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+            int radius = cvRound(circles[i][2]);
+            // circle outline
+            circle( frame, center, radius, Scalar(0,0,0), 3, 8, 0 );
+            //print radius
+            cout << circles[i][2] << endl;
         }
+        cout << "-" << endl;
+    
+        //passa ponto pro metodo da livia
+        //retorna bool 
         imshow("frame", frame);
-        imshow("keypoints", blobMask );
+
 
 
         char c=(char)waitKey(0);

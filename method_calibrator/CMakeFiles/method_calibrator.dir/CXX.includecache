@@ -51,8 +51,6 @@ quaternaryMask.h
 /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h
 houghCirclesContrast.h
 /home/raphael/nao/workspace/perception/method_calibrator/houghCirclesContrast.h
-bhuman_ish.h
-/home/raphael/nao/workspace/perception/method_calibrator/bhuman_ish.h
 
 /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp
 quaternaryMask.h
