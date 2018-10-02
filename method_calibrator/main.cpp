@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
             Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
             int radius = cvRound(circles[i][2]);
             // circle outline
-            circle( frame, center, radius, Scalar(0,0,0), 3, 8, 0 );
+            circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
             //print radius
             cout << circles[i][2] << endl;
         }

@@ -20,6 +20,7 @@ public:
 
     double dp, minDist, param1, param2;
     int maxRadius, minRadius;
+    float resize_factor;
 
     vector<Vec3f> run(Mat frame);
 };

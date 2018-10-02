@@ -7,12 +7,14 @@ houghCirclesContrast::houghCirclesContrast()
 
 vector<Vec3f> houghCirclesContrast::run(Mat frame){
 
+    this->resize_factor = 0.25;
+
     this->dp = 1;
     this->minDist = frame.rows/8;
-    this->param1 = 100;
-    this->param2 = 50;
-    this->maxRadius = 60;
-    this->minRadius = 10;
+    this->param1 = 80; //thresh canny
+    this->param2 = 20; //thresh acumulador
+    this->maxRadius = 60 * resize_factor;
+    this->minRadius = 10 * resize_factor;
 
     /*
     dp – Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
@@ -23,31 +25,41 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
     maxRadius – Maximum circle radius.
     */
 
-    int scale = 1;
-    int delta = 0;
-    int ddepth = CV_16S;
-
-    Mat gray;
-    Mat grad_x, grad_y;
-    Mat abs_grad_x, abs_grad_y;
-
-    Mat grad;
-    GaussianBlur( frame, gray, Size(3,3), 0, 0, BORDER_DEFAULT );
-    cvtColor(gray, gray, COLOR_BGR2GRAY);
-
-    /// Gradient X
-    Sobel( gray, grad_x, ddepth, 1, 0, 3, scale, delta, BORDER_DEFAULT );
-    /// Gradient Y
-    Sobel( gray, grad_y, ddepth, 0, 1, 3, scale, delta, BORDER_DEFAULT );
-
-    convertScaleAbs( grad_x, abs_grad_x );
-    convertScaleAbs( grad_y, abs_grad_y );
-
-    addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
-
     vector<Vec3f> circles;
 
-    HoughCircles( grad, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
+    Mat gray;
+
+    // resize
+    cvtColor(frame, gray, COLOR_BGR2GRAY);
+    resize(gray, gray, Size(), resize_factor, resize_factor);
+
+    HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
+
+    for( size_t i = 0; i < circles.size(); i++ )
+    {
+        /*if(bool da livia){
+            circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
+        }else{
+            circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
+        }
+
+        */
+        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+        int radius = cvRound(circles[i][2]);
+        // circle outline
+        circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
+        //print radius
+
+    }
+
+    imshow("gray", gray);
+
+    for( size_t i = 0; i < circles.size(); i++ )
+        {
+            circles[i][0] *= 1/resize_factor;
+            circles[i][1] *= 1/resize_factor;
+            circles[i][2] *= 1/resize_factor;
+        }
 
     return circles;
 
