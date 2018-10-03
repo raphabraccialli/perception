@@ -41,29 +41,51 @@ int main(int argc, char *argv[]){
             break;
 
         //find best circle
-        circles = hough.run(frame);
         Mask.generateMask(frame);
+        // frame * greenMask para eliminar circulos fora do campo
+        //(e conferir se ajuda no processamento)
+        circles = hough.run(frame);
 
-        for( size_t i = 0; i < circles.size(); i++ )
-        {
-            /*if(bool da livia){
-                circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
+        //metodo da livia retorna bool
+
+        //for single circle
+        if(circles.size() > 0){
+            Point center(cvRound(circles[0][0]), cvRound(circles[0][1]));
+            int radius = cvRound(circles[0][2]);
+            // circle outline
+            /*
+            if(bool da livia){
+                circle( frame, center, radius, Scalar(0,255, 0), -1, 8, 0 );    
             }else{
-                circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
-            }
+                circle( frame, center, radius, Scalar(0,0,255), -1, 8, 0 );
+            }*/
 
-            */
+            circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0);
+
+            //print radius
+            cout << "Radius: " << circles[0][2] << endl;
+            cout << "X: " << center.x << endl;
+            cout << "Y: " << center.y << endl;
+        }
+
+        //for printing multiple circles
+        /*for( size_t i = 0; i < circles.size(); i++ )
+        {
+            //if(bool da livia){
+            //    circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
+            //}else{
+            //    circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
+            //}
+
+            
             Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
             int radius = cvRound(circles[i][2]);
             // circle outline
             circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
             //print radius
             cout << circles[i][2] << endl;
-        }
-        cout << "-" << endl;
+        }*/
     
-        //passa ponto pro metodo da livia
-        //retorna bool 
         imshow("frame", frame);
 
 

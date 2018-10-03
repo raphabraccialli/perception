@@ -44,21 +44,24 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
         }
 
         */
-        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
-        int radius = cvRound(circles[i][2]);
+
+        //Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+        //int radius = cvRound(circles[i][2]);
         // circle outline
-        circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
+        //circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
         //print radius
 
     }
 
-    imshow("gray", gray);
+    //imshow("gray", gray);
 
     for( size_t i = 0; i < circles.size(); i++ )
         {
+            cout << circles[i][0] << endl;
             circles[i][0] *= 1/resize_factor;
             circles[i][1] *= 1/resize_factor;
             circles[i][2] *= 1/resize_factor;
+            cout << circles[i][0] << endl;
         }
 
     return circles;
