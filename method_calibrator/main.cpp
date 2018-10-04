@@ -70,14 +70,15 @@ int main(int argc, char *argv[]){
         cout << "center: " << center << endl;
         //metodo da livia retorna int
         int gotItRight = evaluator.add(center);
-        cout << "radius: " << radius << endl;
 
         ////////////////////// implementar falsos positivos e falso negativo
 
         // circle outline
         if(gotItRight == 1){
             cout << "GOT IT RIGHT" << endl;
-            circle( frame, center, radius, Scalar(0,255, 0), 3, 8, 0 );
+            if(center.x != -1){
+                circle( frame, center, radius, Scalar(0,255, 0), 3, 8, 0 );
+            }
         }else{
             cout << "SHAME ON YOU" << endl;
             if(center.x != -1){
