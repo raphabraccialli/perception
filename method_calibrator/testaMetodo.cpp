@@ -1,6 +1,5 @@
 #include "testaMetodo.hpp"
 /*
-
 testaMetodo::testaMetodo (char* name_file, float a, float b){
 	ifstream myfile(name_file);
 
@@ -94,4 +93,5 @@ bool evaluate(Point p){
 		//append pro vetor de avaliacao
 		return false;
 	}
-}*/
+}
+*/

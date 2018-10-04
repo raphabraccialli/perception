@@ -1,5 +1,6 @@
 #include "quaternaryMask.h"
 #include "houghCirclesContrast.h"
+#include "evaluator.hpp"
 
 int main(int argc, char *argv[]){
 
@@ -22,14 +23,25 @@ int main(int argc, char *argv[]){
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10);
 
+    evaluator evaluator(argv[3], 0.04, 10);
 
-    //instanciar metodo da livia // le arquivo no construtor(arquivo, a, b)
+    int fps = cap.get(CV_CAP_PROP_FPS);
+    int fps_new = atoi(argv[2]);
+    int skip = (fps/fps_new) - 1;
 
     while(1){
+
+        // Capture frame-by-frame in the specified frame rate fps_new
+        cap >> frame;
+
+        // If the frame is empty, break immediately
+        if (frame.empty())
+          break;
+
         // Captures a frame and skip some
-        int i=0;
+        /*int i=0;
         bool breaker=false;
-        while(i<5){
+        while(i<skip){
             cap >> frame;
             if(frame.empty()){
                 breaker=true;
@@ -38,7 +50,7 @@ int main(int argc, char *argv[]){
             i++;
         }
         if(breaker)
-            break;
+            break;*/
 
         //find best circle
         Mask.generateMask(frame);
@@ -46,48 +58,35 @@ int main(int argc, char *argv[]){
         //(e conferir se ajuda no processamento)
         circles = hough.run(frame);
 
-        //metodo da livia retorna bool
+        Point center(-1, -1);
+        int radius = -1;
 
         //for single circle
         if(circles.size() > 0){
-            Point center(cvRound(circles[0][0]), cvRound(circles[0][1]));
-            int radius = cvRound(circles[0][2]);
-            // circle outline
-            /*
-            if(bool da livia){
-                circle( frame, center, radius, Scalar(0,255, 0), -1, 8, 0 );    
+            center.x = cvRound(circles[0][0]);
+            center.y = cvRound(circles[0][1]);
+            radius = cvRound(circles[0][2]);
+        }
+        cout << "center: " << center << endl;
+        //metodo da livia retorna int
+        int gotItRight = evaluator.add(center);
+        cout << "radius: " << radius << endl;
+
+        ////////////////////// implementar falsos positivos e falso negativo
+
+        // circle outline
+        if(gotItRight == 1){
+            cout << "GOT IT RIGHT" << endl;
+            circle( frame, center, radius, Scalar(0,255, 0), 3, 8, 0 );
+        }else{
+            cout << "SHAME ON YOU" << endl;
+            if(center.x != -1){
+                circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
             }else{
-                circle( frame, center, radius, Scalar(0,0,255), -1, 8, 0 );
-            }*/
-
-            circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0);
-
-            //print radius
-            cout << "Radius: " << circles[0][2] << endl;
-            cout << "X: " << center.x << endl;
-            cout << "Y: " << center.y << endl;
+            }
         }
 
-        //for printing multiple circles
-        /*for( size_t i = 0; i < circles.size(); i++ )
-        {
-            //if(bool da livia){
-            //    circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
-            //}else{
-            //    circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
-            //}
-
-            
-            Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
-            int radius = cvRound(circles[i][2]);
-            // circle outline
-            circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
-            //print radius
-            cout << circles[i][2] << endl;
-        }*/
-    
         imshow("frame", frame);
-
 
 
         char c=(char)waitKey(0);
@@ -97,7 +96,13 @@ int main(int argc, char *argv[]){
             break;
         }
 
+        for(int i=0; i < skip; i++){
+            cap >> frame;
+        }
+
     }
+
+    cout << "TOTAL: " << evaluator.evaluate()*100 << "%" << endl;
 
     cap.release();
 

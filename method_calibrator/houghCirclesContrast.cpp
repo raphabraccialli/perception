@@ -11,7 +11,7 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
 
     this->dp = 1;
     this->minDist = frame.rows/8;
-    this->param1 = 80; //thresh canny
+    this->param1 = 70; //thresh canny
     this->param2 = 20; //thresh acumulador
     this->maxRadius = 60 * resize_factor;
     this->minRadius = 10 * resize_factor;
@@ -37,31 +37,20 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
 
     for( size_t i = 0; i < circles.size(); i++ )
     {
-        /*if(bool da livia){
-            circle( frame, center, 3, Scalar(0,255, 0), -1, 8, 0 );    
-        }else{
-            circle( frame, center, 3, Scalar(0,0,255), -1, 8, 0 );
-        }
-
-        */
-
-        //Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
-        //int radius = cvRound(circles[i][2]);
+        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
+        int radius = cvRound(circles[i][2]);
         // circle outline
-        //circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
-        //print radius
+        circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
 
     }
 
-    //imshow("gray", gray);
+    imshow("gray", gray);
 
     for( size_t i = 0; i < circles.size(); i++ )
         {
-            cout << circles[i][0] << endl;
             circles[i][0] *= 1/resize_factor;
             circles[i][1] *= 1/resize_factor;
             circles[i][2] *= 1/resize_factor;
-            cout << circles[i][0] << endl;
         }
 
     return circles;
