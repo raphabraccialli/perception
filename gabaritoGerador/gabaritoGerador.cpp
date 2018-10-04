@@ -53,6 +53,10 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
   skip = (fps/fps_new) - 1;
   fr_period = 1000/fps_new;
 
+  cout << "FPS: " << fps << endl;
+  cout << "FPS_NEW: " << fps_new << endl;
+  cout << "SKIP: " << skip << endl;
+
   // Check if camera opened successfully
   if(!cap.isOpened()){
     cout << "Error opening video stream or file" << endl;
