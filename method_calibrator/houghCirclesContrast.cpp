@@ -1,18 +1,17 @@
 #include "houghCirclesContrast.h"
 
-houghCirclesContrast::houghCirclesContrast()
+houghCirclesContrast::houghCirclesContrast(int param1, int param2)
 {
-
+    this->param1 = param1; //thresh canny
+    this->param2 = param2; //thresh acumulador
 }
 
 vector<Vec3f> houghCirclesContrast::run(Mat frame){
 
-    this->resize_factor = 0.25;
+    this->resize_factor = 0.5;
 
     this->dp = 1;
     this->minDist = frame.rows/8;
-    this->param1 = 70; //thresh canny
-    this->param2 = 20; //thresh acumulador
     this->maxRadius = 60 * resize_factor;
     this->minRadius = 10 * resize_factor;
 
@@ -43,8 +42,6 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
         circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
 
     }
-
-    imshow("gray", gray);
 
     for( size_t i = 0; i < circles.size(); i++ )
         {

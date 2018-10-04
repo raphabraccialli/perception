@@ -20,7 +20,7 @@ public:
 
 	int testa(string nome_gabarito);
 
-	int add(Point p);
+	int add(Point p, Mat frame);
 	float evaluate();
 
 	float a, b; 						//coeficientes lineares
@@ -30,5 +30,9 @@ public:
 	int index, fps;
 
 };
+
+int dbg_imshow(Mat frame);
+
+int dbg_circle(Mat frame, Point center, int radius, int color);
 
 #endif

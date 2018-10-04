@@ -2,6 +2,12 @@
 #include "houghCirclesContrast.h"
 #include "evaluator.hpp"
 
+struct param_set{
+    int param1 = 0;
+    int param2 = 0;
+    float total = 0;
+};
+
 int main(int argc, char *argv[]){
 
 
@@ -18,92 +24,94 @@ int main(int argc, char *argv[]){
 
     Mat frame;
     vector<Vec3f> circles;
-    houghCirclesContrast hough;
 
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10);
-
-    evaluator evaluator(argv[3], 0.04, 10);
 
     int fps = cap.get(CV_CAP_PROP_FPS);
     int fps_new = atoi(argv[2]);
     int skip = (fps/fps_new) - 1;
 
-    while(1){
+    param_set best;
 
-        // Capture frame-by-frame in the specified frame rate fps_new
-        cap >> frame;
+    for(int param1 = 60; param1 < 80; param1=param1+2){
+        for(int param2 = 20; param2 < 30; param2=param2+2){
+            cap.set(CV_CAP_PROP_POS_FRAMES, 0);
+            houghCirclesContrast hough(param1, param2);
+            evaluator evaluator(argv[3], 0.04, 10);
+            cout << "param1: " << param1 << "\tparam2: " << param2;
+            while(1){
+                // Capture frame-by-frame in the specified frame rate fps_new
+                cap >> frame;
 
-        // If the frame is empty, break immediately
-        if (frame.empty())
-          break;
+                // If the frame is empty, break immediately
+                if (frame.empty())
+                  break;
 
-        // Captures a frame and skip some
-        /*int i=0;
-        bool breaker=false;
-        while(i<skip){
-            cap >> frame;
-            if(frame.empty()){
-                breaker=true;
-                break;
+                // Captures a frame and skip some
+                /*int i=0;
+                bool breaker=false;
+                while(i<skip){
+                    cap >> frame;
+                    if(frame.empty()){
+                        breaker=true;
+                        break;
+                    }
+                    i++;
+                }
+                if(breaker)
+                    break;*/
+
+                //find best circle
+                //Mask.generateMask(frame);
+                // frame * greenMask para eliminar circulos fora do campo
+                //(e conferir se ajuda no processamento)
+                circles = hough.run(frame);
+
+                Point center(-1, -1);
+                int radius = -1;
+                //for single circle
+                if(circles.size() > 0){
+                    center.x = cvRound(circles[0][0]);
+                    center.y = cvRound(circles[0][1]);
+                    radius = cvRound(circles[0][2]);
+                }
+                //metodo da livia retorna int
+                int gotItRight = evaluator.add(center, frame);
+                //imshow("debug", frame);
+
+                /*char c=(char)waitKey(0);
+                // If the frame is empty or esc, break immediately
+                if (c == 27){
+                    cout << "BREAK" << endl;
+                    break;
+                }*/
+
+                for(int i=0; i < skip; i++){
+                    cap >> frame;
+                }
+
             }
-            i++;
-        }
-        if(breaker)
-            break;*/
-
-        //find best circle
-        Mask.generateMask(frame);
-        // frame * greenMask para eliminar circulos fora do campo
-        //(e conferir se ajuda no processamento)
-        circles = hough.run(frame);
-
-        Point center(-1, -1);
-        int radius = -1;
-
-        //for single circle
-        if(circles.size() > 0){
-            center.x = cvRound(circles[0][0]);
-            center.y = cvRound(circles[0][1]);
-            radius = cvRound(circles[0][2]);
-        }
-        cout << "center: " << center << endl;
-        //metodo da livia retorna int
-        int gotItRight = evaluator.add(center);
-
-        ////////////////////// implementar falsos positivos e falso negativo
-
-        // circle outline
-        if(gotItRight == 1){
-            cout << "GOT IT RIGHT" << endl;
-            if(center.x != -1){
-                circle( frame, center, radius, Scalar(0,255, 0), 3, 8, 0 );
-            }
-        }else{
-            cout << "SHAME ON YOU" << endl;
-            if(center.x != -1){
-                circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
+            float total = evaluator.evaluate()*100;
+            cout << "\tTOTAL: " << total << "%";
+            if(total > best.total){
+                best.total = total;
+                best.param1 = param1;
+                best.param2 = param2;
+                cout << " BEST SO FAR!" << endl;
             }else{
+                cout << endl;
             }
+
         }
-
-        imshow("frame", frame);
-
-
-        char c=(char)waitKey(0);
-        // If the frame is empty or esc, break immediately
-        if (c == 27){
-            cout << "BREAK" << endl;
-            break;
-        }
-
-        for(int i=0; i < skip; i++){
-            cap >> frame;
-        }
-
     }
-
-    cout << "TOTAL: " << evaluator.evaluate()*100 << "%" << endl;
+    
+    cout << "///////////////////////////////////////////////////////////////" << 
+    endl << "BEST SET IS: \tparam1: " << best.param1 <<
+    "\tparam2: " << best.param2 <<
+    "\tTotal: " << best.total <<
+    endl << "///////////////////////////////////////////////////////////////" << endl;
+    
 
     cap.release();
 
