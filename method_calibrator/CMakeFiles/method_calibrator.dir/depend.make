@@ -13,7 +13,11 @@ CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o: houghCirclesContras
 CMakeFiles/method_calibrator.dir/main.cpp.o: evaluator.hpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: houghCirclesContrast.h
 CMakeFiles/method_calibrator.dir/main.cpp.o: main.cpp
+CMakeFiles/method_calibrator.dir/main.cpp.o: pixelCountCheck.hpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: quaternaryMask.h
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o: pixelCountCheck.cpp
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o: pixelCountCheck.hpp
 
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: quaternaryMask.cpp
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: quaternaryMask.h

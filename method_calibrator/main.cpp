@@ -1,3 +1,4 @@
+#include "pixelCountCheck.hpp"
 #include "quaternaryMask.h"
 #include "houghCirclesContrast.h"
 #include "evaluator.hpp"
@@ -63,10 +64,14 @@ int main(int argc, char *argv[]){
                     break;*/
 
                 //find best circle
-                //Mask.generateMask(frame);
+                Mask.generateMask(frame);
                 // frame * greenMask para eliminar circulos fora do campo
                 //(e conferir se ajuda no processamento)
                 circles = hough.run(frame);
+                cout << "BOLAS: " << circles.size() << endl;
+                //////////////////////////////////////// teste ///////////////////////
+                pixelCountCheck checker;
+                checker.run(circles, Mask.whiteMask, Mask.blackMask, frame);
 
                 Point center(-1, -1);
                 int radius = -1;
@@ -78,14 +83,14 @@ int main(int argc, char *argv[]){
                 }
                 //metodo da livia retorna int
                 int gotItRight = evaluator.add(center, frame);
-                //imshow("debug", frame);
+                imshow("debug", frame);
 
-                /*char c=(char)waitKey(0);
+                char c=(char)waitKey(0);
                 // If the frame is empty or esc, break immediately
                 if (c == 27){
                     cout << "BREAK" << endl;
                     break;
-                }*/
+                }
 
                 for(int i=0; i < skip; i++){
                     cap >> frame;

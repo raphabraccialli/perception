@@ -231,6 +231,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pixelCountCheck.o: pixelCountCheck.cpp.o
+
+.PHONY : pixelCountCheck.o
+
+# target to build an object file
+pixelCountCheck.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
+.PHONY : pixelCountCheck.cpp.o
+
+pixelCountCheck.i: pixelCountCheck.cpp.i
+
+.PHONY : pixelCountCheck.i
+
+# target to preprocess a source file
+pixelCountCheck.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.i
+.PHONY : pixelCountCheck.cpp.i
+
+pixelCountCheck.s: pixelCountCheck.cpp.s
+
+.PHONY : pixelCountCheck.s
+
+# target to generate assembly for a file
+pixelCountCheck.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.s
+.PHONY : pixelCountCheck.cpp.s
+
 quaternaryMask.o: quaternaryMask.cpp.o
 
 .PHONY : quaternaryMask.o
@@ -306,6 +333,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pixelCountCheck.o"
+	@echo "... pixelCountCheck.i"
+	@echo "... pixelCountCheck.s"
 	@echo "... quaternaryMask.o"
 	@echo "... quaternaryMask.i"
 	@echo "... quaternaryMask.s"

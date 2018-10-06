@@ -69,12 +69,36 @@ vector
 -
 
 /home/raphael/nao/workspace/perception/method_calibrator/main.cpp
+pixelCountCheck.hpp
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
 quaternaryMask.h
 /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h
 houghCirclesContrast.h
 /home/raphael/nao/workspace/perception/method_calibrator/houghCirclesContrast.h
 evaluator.hpp
 /home/raphael/nao/workspace/perception/method_calibrator/evaluator.hpp
+
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp
+pixelCountCheck.hpp
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
+
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
+iostream
+-
+stdlib.h
+-
+fstream
+-
+iterator
+-
+string
+-
+vector
+-
+cmath
+-
+opencv2/opencv.hpp
+-
 
 /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp
 quaternaryMask.h

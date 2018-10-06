@@ -14,7 +14,11 @@ CMakeFiles/method_calibrator.dir/main.cpp.o
  /home/raphael/nao/workspace/perception/method_calibrator/evaluator.hpp
  /home/raphael/nao/workspace/perception/method_calibrator/houghCirclesContrast.h
  /home/raphael/nao/workspace/perception/method_calibrator/main.cpp
+ /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
  /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
+ /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp
+ /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o
  /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp
  /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.h

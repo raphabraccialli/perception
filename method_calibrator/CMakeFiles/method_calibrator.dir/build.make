@@ -153,9 +153,33 @@ CMakeFiles/method_calibrator.dir/main.cpp.o.provides: CMakeFiles/method_calibrat
 CMakeFiles/method_calibrator.dir/main.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/main.cpp.o
 
 
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o: pixelCountCheck.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp > CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.i
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp -o CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.s
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.requires:
+
+.PHONY : CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.requires
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.provides: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.requires
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.provides.build
+.PHONY : CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.provides
+
+CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
+
+
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: quaternaryMask.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp
 
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o: testaMetodo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/testaMetodo.cpp
 
 CMakeFiles/method_calibrator.dir/testaMetodo.cpp.i: cmake_force
@@ -207,6 +231,7 @@ method_calibrator_OBJECTS = \
 "CMakeFiles/method_calibrator.dir/evaluator.cpp.o" \
 "CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o" \
 "CMakeFiles/method_calibrator.dir/main.cpp.o" \
+"CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o" \
 "CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o" \
 "CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o"
 
@@ -217,6 +242,7 @@ method_calibrator: CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/evaluator.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/main.cpp.o
+method_calibrator: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/build.make
@@ -262,7 +288,7 @@ method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
 method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
 method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 method_calibrator: CMakeFiles/method_calibrator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable method_calibrator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable method_calibrator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/method_calibrator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -274,6 +300,7 @@ CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/bhum
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/evaluator.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/main.cpp.o.requires
+CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o.requires
 
