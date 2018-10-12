@@ -173,36 +173,26 @@ int main(int argc, char *argv[]){
                     Point center(-1, -1);
                     int radius = -1;
                     //for single circle
-                    while(int i < circle.size() && i < 5){
+                    while(int i < circle.size()/* && i < 5*/){//limitar pixelcount????
                         //pixelcount faz a sua mágica
                         //primeiro que aceita o threshold ->break
                     }
-                    
+
                     //metodo da livia retorna int
                     int gotItRight = evaluator.add(center, frame);
                     
-                    #ifdef DEBUG
-                        imshow("debug", frame);
-
-                        char c=(char)waitKey(0);
-                        // If the frame is empty or esc, break immediately
-                        if (c == 27){
-                            cout << "BREAK" << endl;
-                            break;
-                        }
-                    #endif
 
                     for(int i=0; i < skip; i++){
                         cap >> frame;
                     }
 
                 }
-                float hough_total = evaluator.evaluate()*100;
-                cout << "\though_total: " << hough_total << "%";
-                if(hough_total > best.hough_total){
-                    best.hough_total = hough_total;
-                    best.hough_param1 = hough_param1;
-                    best.hough_param2 = hough_param2;
+                float pixel_total = evaluator.evaluate()*100;
+                cout << "\tpixel_total: " << pixel_total << "%";
+                if(pixel_total > best.pixel_total){
+                    best.pixel_total = pixel_total;
+                    best.pixel_param1 = pixel_param1;
+                    best.pixel_param2 = pixel_param2;
                     cout << "\tBEST SO FAR!" << endl;
                 }else{
                     cout << endl;
@@ -210,14 +200,15 @@ int main(int argc, char *argv[]){
             }
         }
         cout << "///////////////////////////////////////////////////////////////" << 
-        endl << "BEST SET IS: \though_param1: " << best.hough_param1 <<
-        "\though_param2: " << best.hough_param2 <<
-        "\though_total: " << best.hough_total <<
+        endl << "BEST SET IS: \tpixel_param1: " << best.pixel_param1 <<
+        "\tpixel_param2: " << best.pixel_param2 <<
+        "\tpixel_total: " << best.pixel_total <<
         endl << "///////////////////////////////////////////////////////////////" << endl;
     }
 
 
-
+    // printar melhor combinação total
+    
     
     
 
