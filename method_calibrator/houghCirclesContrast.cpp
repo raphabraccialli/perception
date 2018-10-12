@@ -34,6 +34,7 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
 
     HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
 
+    /*
     for( size_t i = 0; i < circles.size(); i++ )
     {
         Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
@@ -41,7 +42,7 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
         // circle outline
         circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
 
-    }
+    }*/
 
     for( size_t i = 0; i < circles.size(); i++ )
         {

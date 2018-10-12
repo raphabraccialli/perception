@@ -27,9 +27,12 @@ int pixelCountCheck::run(vector<Vec3f> circles, Mat whiteMask, Mat blackMask, Ma
 		whiteCount = countNonZero(maskedWhite);
 		blackCount = countNonZero(maskedBlack);
 
+		#ifdef DEBUG
 		cout << "bola " << i << ":" << endl;
 		cout << "whiteCount: " << whiteCount << endl;
 		cout << "blackCount: " << blackCount << endl;
+		cout << endl;
+		#endif
 
 	}
 	return 0;

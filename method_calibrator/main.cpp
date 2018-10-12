@@ -29,17 +29,21 @@ int main(int argc, char *argv[]){
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10);
 
+    string linefps;
+    ifstream myfile(argv[2]);
+    getline(myfile, linefps);
+    int fps_new = stoi(linefps, 0, 10);
     int fps = cap.get(CV_CAP_PROP_FPS);
-    int fps_new = atoi(argv[2]);
     int skip = (fps/fps_new) - 1;
+    myfile.close();
 
     param_set best;
 
-    for(int param1 = 60; param1 < 80; param1=param1+2){
-        for(int param2 = 20; param2 < 30; param2=param2+2){
+    for(int param1 = 66; param1 < 74; param1=param1+2){
+        for(int param2 = 22; param2 < 30; param2=param2+2){
             cap.set(CV_CAP_PROP_POS_FRAMES, 0);
             houghCirclesContrast hough(param1, param2);
-            evaluator evaluator(argv[3], 0.04, 10);
+            evaluator evaluator(argv[2], 0.04, 10);
             cout << "param1: " << param1 << "\tparam2: " << param2;
             while(1){
                 // Capture frame-by-frame in the specified frame rate fps_new
@@ -68,7 +72,7 @@ int main(int argc, char *argv[]){
                 // frame * greenMask para eliminar circulos fora do campo
                 //(e conferir se ajuda no processamento)
                 circles = hough.run(frame);
-                cout << "BOLAS: " << circles.size() << endl;
+                //cout << "BOLAS: " << circles.size() << endl;
                 //////////////////////////////////////// teste ///////////////////////
                 pixelCountCheck checker;
                 checker.run(circles, Mask.whiteMask, Mask.blackMask, frame);
@@ -83,14 +87,14 @@ int main(int argc, char *argv[]){
                 }
                 //metodo da livia retorna int
                 int gotItRight = evaluator.add(center, frame);
-                imshow("debug", frame);
+                /*imshow("debug", frame);
 
                 char c=(char)waitKey(0);
                 // If the frame is empty or esc, break immediately
                 if (c == 27){
                     cout << "BREAK" << endl;
                     break;
-                }
+                }*/
 
                 for(int i=0; i < skip; i++){
                     cap >> frame;
