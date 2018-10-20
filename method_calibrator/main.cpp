@@ -129,7 +129,7 @@ int main(int argc, char *argv[]){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2);
                 //iniciar pixelcount com pixelbranco vs y e pixelbranco vs preto TODO
-                pixelCountCheck pixelChecker;
+                pixelCountCheck pixelChecker(1, 1);
                 evaluator evaluator(argv[2], 0.04, 10);
                 cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << endl;
                 while(1){
