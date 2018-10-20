@@ -1,1 +1,0 @@
-/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir
