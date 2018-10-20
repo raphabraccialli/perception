@@ -1,9 +1,10 @@
 #include "pixelCountCheck.hpp"
 
-//#define DEBUG 1
+#define DEBUG 1
 
-pixelCountCheck::pixelCountCheck(){
-
+pixelCountCheck::pixelCountCheck(int propMin, int propMax){
+	this->propMin = propMin;
+	this->propMax = propMax;
 }
 
 int pixelCountCheck::run(vector<Vec3f> circles, Mat whiteMask, Mat blackMask, Mat frame){
@@ -28,9 +29,10 @@ int pixelCountCheck::run(vector<Vec3f> circles, Mat whiteMask, Mat blackMask, Ma
 		blackCount = countNonZero(maskedBlack);
 
 		#ifdef DEBUG
-		cout << "bola " << i << ":" << endl;
+		cout << "bola: " << i <<  "\ty: " << circles[0][1] << endl;
 		cout << "whiteCount: " << whiteCount << endl;
 		cout << "blackCount: " << blackCount << endl;
+		cout << "proportion: " << whiteCount/(blackCount+1) << endl;
 		cout << endl;
 		#endif
 

@@ -5,6 +5,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o"
   "CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o"
   "CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o"
+  "CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o"
   "CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
   "method_calibrator.pdb"
   "method_calibrator"

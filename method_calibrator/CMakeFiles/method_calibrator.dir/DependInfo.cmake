@@ -10,6 +10,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/raphael/nao/workspace/perception/method_calibrator/main.cpp" "/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir/main.cpp.o"
   "/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp" "/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o"
   "/home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp" "/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
+  "/home/raphael/nao/workspace/perception/method_calibrator/sizeCheck.cpp" "/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o"
   "/home/raphael/nao/workspace/perception/method_calibrator/testaMetodo.cpp" "/home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")

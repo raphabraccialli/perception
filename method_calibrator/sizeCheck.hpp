@@ -10,16 +10,16 @@
 using namespace std;
 using namespace cv;
 
-#ifndef PIXELCOUNTCHECK_H
-#define PIXELCOUNTCHECK_H
+#ifndef SIZECHECK_H
+#define SIZECHECK_H
 
-class pixelCountCheck
+class sizeCheck
 {
 public:
-	pixelCountCheck(int propMin, int propMax);
-	int propMin, propMax;
+	sizeCheck(float a, float b);
 
-	int run(vector<Vec3f> circles, Mat whiteMask, Mat blackMask, Mat frame);
+	float a, b;
+	int run(vector<Vec3f> circles);
 };
 
 #endif

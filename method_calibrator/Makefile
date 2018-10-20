@@ -255,6 +255,30 @@ quaternaryMask.cpp.s:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.s
 .PHONY : quaternaryMask.cpp.s
 
+sizeCheck.o: sizeCheck.cpp.o
+.PHONY : sizeCheck.o
+
+# target to build an object file
+sizeCheck.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o
+.PHONY : sizeCheck.cpp.o
+
+sizeCheck.i: sizeCheck.cpp.i
+.PHONY : sizeCheck.i
+
+# target to preprocess a source file
+sizeCheck.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.i
+.PHONY : sizeCheck.cpp.i
+
+sizeCheck.s: sizeCheck.cpp.s
+.PHONY : sizeCheck.s
+
+# target to generate assembly for a file
+sizeCheck.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.s
+.PHONY : sizeCheck.cpp.s
+
 testaMetodo.o: testaMetodo.cpp.o
 .PHONY : testaMetodo.o
 
@@ -306,6 +330,9 @@ help:
 	@echo "... quaternaryMask.o"
 	@echo "... quaternaryMask.i"
 	@echo "... quaternaryMask.s"
+	@echo "... sizeCheck.o"
+	@echo "... sizeCheck.i"
+	@echo "... sizeCheck.s"
 	@echo "... testaMetodo.o"
 	@echo "... testaMetodo.i"
 	@echo "... testaMetodo.s"

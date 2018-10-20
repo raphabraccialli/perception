@@ -50,6 +50,10 @@ houghCirclesContrast.h
 evaluator.hpp
 /home/raphael/nao/workspace/perception/method_calibrator/evaluator.hpp
 
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.cpp
+pixelCountCheck.hpp
+/home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
+
 /home/raphael/nao/workspace/perception/method_calibrator/pixelCountCheck.hpp
 iostream
 -

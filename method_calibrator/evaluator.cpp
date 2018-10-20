@@ -1,22 +1,27 @@
 #include "evaluator.hpp"
 
-//#define DEBUG 1 //usar junto com debug da main.cpp
+#define DEBUG 1 //usar junto com debug da main.cpp
 
 evaluator::evaluator (String file_name, float a, float b){
 	this->index = 0;
 
-	ifstream myfile(file_name);
+	ifstream myfile(file_name.c_str());
 	string linex, liney, linefps;
 	int x, y;
 
 	getline(myfile, linefps);
-	this->fps = stoi(linefps, 0, 10);
+	istringstream(linefps) >> this->fps;
+	//this->fps = stoi(linefps, 0, 10);
 
 	while(getline(myfile, linex) && getline(myfile, liney)){
 
+
+		istringstream(linex) >> x;
+		istringstream(liney) >> y;
+		/*
 		x = stoi(linex, 0, 10);
 		y = stoi(liney, 0, 10);
-
+		*/
 		Point coordinates(x, y);
 		this->ballPos.push_back(coordinates);
 	}	

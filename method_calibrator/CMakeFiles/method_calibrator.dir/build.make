@@ -187,9 +187,32 @@ CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o.provides: CMakeFiles
 
 CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o
 
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o: sizeCheck.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles $(CMAKE_PROGRESS_7)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/sizeCheck.cpp
+
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/method_calibrator.dir/sizeCheck.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/raphael/nao/workspace/perception/method_calibrator/sizeCheck.cpp > CMakeFiles/method_calibrator.dir/sizeCheck.cpp.i
+
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/method_calibrator.dir/sizeCheck.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/raphael/nao/workspace/perception/method_calibrator/sizeCheck.cpp -o CMakeFiles/method_calibrator.dir/sizeCheck.cpp.s
+
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.requires:
+.PHONY : CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.requires
+
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.provides: CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.requires
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.provides.build
+.PHONY : CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.provides
+
+CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o
+
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o: quaternaryMask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/raphael/nao/workspace/perception/method_calibrator/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/quaternaryMask.cpp
 
@@ -218,6 +241,7 @@ method_calibrator_OBJECTS = \
 "CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o" \
 "CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o" \
 "CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o" \
+"CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o" \
 "CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o"
 
 # External object files for target method_calibrator
@@ -229,6 +253,7 @@ method_calibrator: CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o
+method_calibrator: CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/build.make
 method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8
@@ -274,6 +299,7 @@ CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/test
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o.requires
+CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o.requires
 .PHONY : CMakeFiles/method_calibrator.dir/requires
 
