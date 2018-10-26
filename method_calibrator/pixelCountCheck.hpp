@@ -16,10 +16,13 @@ using namespace cv;
 class pixelCountCheck
 {
 public:
-	pixelCountCheck(int propMin, int propMax);
-	int propMin, propMax;
+	pixelCountCheck(float whiteMin, float blackMin);
+	
+	// minimal percentage of pixels in area
+	// area = r² * pi
+	float whiteMin, blackMin;
 
-	int run(vector<Vec3f> circles, Mat whiteMask, Mat blackMask, Mat frame);
+	float run(Vec3f candidate, Mat whiteMask, Mat blackMask, Mat frame);
 };
 
 #endif

@@ -17,9 +17,7 @@ class evaluator
 {
 public:
 	evaluator(String name_file, float a, float b);
-
-	int testa(string nome_gabarito);
-
+	
 	int add(Point p, Mat frame);
 	float evaluate();
 

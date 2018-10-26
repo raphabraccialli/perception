@@ -82,7 +82,7 @@ int main(int argc, char *argv[]){
                     //metodo da livia retorna int
                     int gotItRight = evaluator.add(center, frame);
                     
-                    #ifdef DEBUG
+                    #ifdef DEBUGa
                         imshow("debug", frame);
 
                         char c=(char)waitKey(0);
@@ -129,7 +129,7 @@ int main(int argc, char *argv[]){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2);
                 //iniciar pixelcount com pixelbranco vs y e pixelbranco vs preto TODO
-                pixelCountCheck pixelChecker(1, 1);
+                pixelCountCheck pixelChecker(0.20, 0.05);
                 evaluator evaluator(argv[2], 0.04, 10);
                 cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << endl;
                 while(1){
@@ -148,18 +148,18 @@ int main(int argc, char *argv[]){
 
                     Point center(-1, -1);
                     int radius = -1;
-                    //for single circle
-                    for(int i = 0; i < circles.size() && i < 5; i++){//limitar pixelcount????
-                        //pixelcount faz a sua mágica
-                        pixelChecker.run(circles, Mask.whiteMask, Mask.blackMask, frame);
-                        //primeiro que aceita o threshold ->break
-                    }
 
                     //for single circle
                     if(circles.size() > 0){
-                        center.x = cvRound(circles[0][0]);
-                        center.y = cvRound(circles[0][1]);
-                        radius = cvRound(circles[0][2]);
+                        for(int i = 0; i < circles.size() && i < 5; i++){
+                            //pixelcount faz a sua mágica
+                            if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame)){
+                                center.x = cvRound(circles[i][0]);
+                                center.y = cvRound(circles[i][1]);
+                                //primeiro que aceita o threshold ->break
+                                break;
+                            }
+                        }
                     }
                     //metodo da livia retorna int
                     int gotItRight = evaluator.add(center, frame);
