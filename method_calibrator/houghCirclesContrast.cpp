@@ -1,14 +1,13 @@
 #include "houghCirclesContrast.h"
 
-houghCirclesContrast::houghCirclesContrast(int param1, int param2)
+houghCirclesContrast::houghCirclesContrast(int param1, int param2, float resize_factor)
 {
     this->param1 = param1; //thresh canny
     this->param2 = param2; //thresh acumulador
+    this->resize_factor = resize_factor; //resize factor
 }
 
 vector<Vec3f> houghCirclesContrast::run(Mat frame){
-
-    this->resize_factor = 0.5;
 
     this->dp = 1;
     this->minDist = frame.rows/8;

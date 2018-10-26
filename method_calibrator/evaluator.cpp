@@ -1,6 +1,6 @@
 #include "evaluator.hpp"
 
-#define DEBUG 1 //usar junto com debug da main.cpp
+//#define DEBUG 1 //usar junto com debug da main.cpp
 
 evaluator::evaluator (String file_name, float a, float b){
 	this->index = 0;

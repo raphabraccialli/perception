@@ -16,7 +16,7 @@ using namespace cv;
 class houghCirclesContrast
 {
 public:
-    houghCirclesContrast(int param, int param2);
+    houghCirclesContrast(int param, int param2, float resize_factor);
 
     double dp, minDist, param1, param2;
     int maxRadius, minRadius;

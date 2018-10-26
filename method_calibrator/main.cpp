@@ -3,16 +3,12 @@
 #include "houghCirclesContrast.h"
 #include "evaluator.hpp"
 
-#define DEBUG 1 //usar junto com debug da evaluator.cpp
+//#define DEBUG 1 //usar junto com debug da evaluator.cpp
 
 struct param_set{
-    int hough_param1;
-    int hough_param2;
-    float hough_total;
+    float hough_param1, hough_param2, hough_total;
 
-    int pixel_param1;
-    int pixel_param2;
-    float pixel_total;
+    float pixel_param1, pixel_param2, pixel_total;
 };
 
 int main(int argc, char *argv[]){
@@ -47,15 +43,17 @@ int main(int argc, char *argv[]){
 
     param_set best = {0}; //conferir isso aqui
 
+    float resize_factor = 0.25;
+
     ////////////////////////////////////////////////////////////
     //////////////////// CALIBRA HOUGH CIRCLES /////////////////
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(atoi(argv[3])){
-        for(int hough_param1 = 72; hough_param1 < 74; hough_param1=hough_param1+2){
-            for(int hough_param2 = 26; hough_param2 < 28; hough_param2=hough_param2+2){
+        for(float hough_param1 = 60; hough_param1 < 80; hough_param1=hough_param1+2){
+            for(float hough_param2 = 10; hough_param2 < 30; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
-                houghCirclesContrast hough(hough_param1, hough_param2);
+                houghCirclesContrast hough(hough_param1, hough_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
                 cout << "hough_param1: " << hough_param1 << "\though_param2: " << hough_param2;
                 while(1){
@@ -82,7 +80,7 @@ int main(int argc, char *argv[]){
                     //metodo da livia retorna int
                     int gotItRight = evaluator.add(center, frame);
                     
-                    #ifdef DEBUGa
+                    #ifdef DEBUG
                         imshow("debug", frame);
 
                         char c=(char)waitKey(0);
@@ -124,12 +122,13 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(atoi(argv[4])){
-        for(int pixel_param1 = 72; pixel_param1 < 74; pixel_param1=pixel_param1+2){
-            for(int pixel_param2 = 26; pixel_param2 < 28; pixel_param2=pixel_param2+2){
+        for(float pixel_param1 = 0.01; pixel_param1 < 0.30; pixel_param1=pixel_param1+0.02){
+            for(float pixel_param2 = 0.00; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.02){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
-                houghCirclesContrast hough(best.hough_param1, best.hough_param2);
-                //iniciar pixelcount com pixelbranco vs y e pixelbranco vs preto TODO
-                pixelCountCheck pixelChecker(0.20, 0.05);
+                houghCirclesContrast hough(best.hough_param1, best.hough_param2, resize_factor);
+                //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
+                //pixel_param1 = branco      pixel_param2 => preto
+                pixelCountCheck pixelChecker(pixel_param1, pixel_param2);
                 evaluator evaluator(argv[2], 0.04, 10);
                 cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << endl;
                 while(1){
@@ -151,7 +150,7 @@ int main(int argc, char *argv[]){
 
                     //for single circle
                     if(circles.size() > 0){
-                        for(int i = 0; i < circles.size() && i < 5; i++){
+                        for(int i = 0; i < circles.size() && i < 10; i++){
                             //pixelcount faz a sua mágica
                             if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame)){
                                 center.x = cvRound(circles[i][0]);
@@ -181,12 +180,12 @@ int main(int argc, char *argv[]){
 
                 }
                 float pixel_total = evaluator.evaluate()*100;
-                //cout << "\tpixel_total: " << pixel_total << "%";
+                cout << "pixel_total: " << pixel_total << "%";
                 if(pixel_total > best.pixel_total){
                     best.pixel_total = pixel_total;
                     best.pixel_param1 = pixel_param1;
                     best.pixel_param2 = pixel_param2;
-                    //cout << "\tBEST SO FAR!" << endl;
+                    cout << "\tBEST SO FAR!" << endl;
                 }else{
                     cout << endl;
                 }

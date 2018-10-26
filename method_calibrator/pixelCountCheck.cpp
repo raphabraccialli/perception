@@ -1,6 +1,6 @@
 #include "pixelCountCheck.hpp"
 
-#define DEBUG 1
+//#define DEBUG 1 //printa valores na linha de comando
 
 pixelCountCheck::pixelCountCheck(float whiteMin, float blackMin){
 	this->whiteMin = whiteMin;
