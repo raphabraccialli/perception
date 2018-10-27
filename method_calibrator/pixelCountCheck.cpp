@@ -2,22 +2,23 @@
 
 //#define DEBUG 1 //printa valores na linha de comando
 
-pixelCountCheck::pixelCountCheck(float whiteMin, float blackMin){
+pixelCountCheck::pixelCountCheck(float whiteMin, float blackMin, float resize_factor){
 	this->whiteMin = whiteMin;
 	this->blackMin = blackMin;
+	this->resize_factor = resize_factor;
 }
 
 float pixelCountCheck::run(Vec3f candidate, Mat whiteMask, Mat blackMask, Mat frame){
 
-	Mat canvas = Mat::zeros(whiteMask.rows, whiteMask.cols, CV_8UC1);
+	Mat canvas = Mat::zeros(whiteMask.rows*this->resize_factor, whiteMask.cols*this->resize_factor, CV_8UC1);
 	Mat maskedWhite, maskedBlack;
 	int whiteCount, blackCount;
 
 	Point center;
-	center.x = cvRound(candidate[0]);
-    center.y = cvRound(candidate[1]);
+	center.x = cvRound(candidate[0]/this->resize_factor);
+    center.y = cvRound(candidate[1]/this->resize_factor);
     
-    int radius = cvRound(candidate[2]);
+    int radius = cvRound(candidate[2]/this->resize_factor);
 
 	circle(canvas, center, radius, Scalar(255,255,255), -1, 8, 0 );
 

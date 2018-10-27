@@ -25,11 +25,13 @@ int main(int argc, char *argv[]){
     }
 
 
+    float resize_factor = 0.25;
+
     Mat frame;
     vector<Vec3f> circles;
 
     quaternaryMask Mask;
-    Mask.setMask(50, 200, 60, 30, 10);
+    Mask.setMask(50, 200, 60, 30, 10, resize_factor);
 
     string linefps;
     ifstream myfile(argv[2]);
@@ -42,8 +44,6 @@ int main(int argc, char *argv[]){
     myfile.close();
 
     param_set best = {0}; //conferir isso aqui
-
-    float resize_factor = 0.25;
 
     ////////////////////////////////////////////////////////////
     //////////////////// CALIBRA HOUGH CIRCLES /////////////////
@@ -128,7 +128,7 @@ int main(int argc, char *argv[]){
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, resize_factor);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
                 //pixel_param1 = branco      pixel_param2 => preto
-                pixelCountCheck pixelChecker(pixel_param1, pixel_param2);
+                pixelCountCheck pixelChecker(pixel_param1, pixel_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
                 cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << endl;
                 while(1){
