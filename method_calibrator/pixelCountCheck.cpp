@@ -8,34 +8,34 @@ pixelCountCheck::pixelCountCheck(float whiteMin, float blackMin, float resize_fa
 	this->resize_factor = resize_factor;
 }
 
-float pixelCountCheck::run(Vec3f candidate, Mat whiteMask, Mat blackMask, Mat frame){
+float pixelCountCheck::run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat blackMask, cv::Mat frame){
 
-	Mat canvas = Mat::zeros(whiteMask.rows*this->resize_factor, whiteMask.cols*this->resize_factor, CV_8UC1);
-	Mat maskedWhite, maskedBlack;
+	cv::Mat canvas = cv::Mat::zeros(whiteMask.rows*this->resize_factor, whiteMask.cols*this->resize_factor, CV_8UC1);
+	cv::Mat maskedWhite, maskedBlack;
 	int whiteCount, blackCount;
 
-	Point center;
+	cv::Point center;
 	center.x = cvRound(candidate[0]/this->resize_factor);
     center.y = cvRound(candidate[1]/this->resize_factor);
     
     int radius = cvRound(candidate[2]/this->resize_factor);
 
-	circle(canvas, center, radius, Scalar(255,255,255), -1, 8, 0 );
+	circle(canvas, center, radius, cv::Scalar(255,255,255), -1, 8, 0 );
 
-	bitwise_and(canvas, whiteMask, maskedWhite);
-	bitwise_and(canvas, blackMask, maskedBlack);
+	cv::bitwise_and(canvas, whiteMask, maskedWhite);
+	cv::bitwise_and(canvas, blackMask, maskedBlack);
 
-	whiteCount = countNonZero(maskedWhite);
-	blackCount = countNonZero(maskedBlack);
+	whiteCount = cv::countNonZero(maskedWhite);
+	blackCount = cv::countNonZero(maskedBlack);
 
 	float area =  CV_PI * radius * radius;
 
 	#ifdef DEBUG
-	cout << "y: " << candidate[1] << endl;
-	cout << "whiteCount: " << whiteCount << endl;
-	cout << "blackCount: " << blackCount << endl;
-	cout << "proportion: " << whiteCount/(blackCount+1) << endl;
-	cout << endl;
+	std::cout << "y: " << candidate[1] << std::endl;
+	std::cout << "whiteCount: " << whiteCount << std::endl;
+	std::cout << "blackCount: " << blackCount << std::endl;
+	std::cout << "proportion: " << whiteCount/(blackCount+1) << std::endl;
+	std::cout << std::endl;
 	#endif
 
 	if(whiteCount/area > this->whiteMin && blackCount/area > this->blackMin)

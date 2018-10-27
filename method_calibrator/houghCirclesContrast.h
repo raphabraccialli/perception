@@ -6,9 +6,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-using namespace cv;
-
 #ifndef HOUGHCIRCLESCONTRAST_H
 #define HOUGHCIRCLESCONTRAST_H
 
@@ -22,7 +19,7 @@ public:
     int maxRadius, minRadius;
     float resize_factor;
 
-    vector<Vec3f> run(Mat frame);
+    std::vector<cv::Vec3f> run(cv::Mat frame);
 };
 
 #endif // HOUGHCIRCLESCONTRAST_H

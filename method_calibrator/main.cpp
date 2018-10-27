@@ -20,25 +20,25 @@ int main(int argc, char *argv[]){
 
     // Check if camera opened successfully
     if(!cap.isOpened()){
-        cout << "Error opening video stream or file" << endl;
+        std::cout << "Error opening video stream or file" << std::endl;
         return -1;
     }
 
 
     float resize_factor = 0.25;
 
-    Mat frame;
-    vector<Vec3f> circles;
+    cv::Mat frame;
+    std::vector<cv::Vec3f> circles;
 
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10, resize_factor);
 
     string linefps;
-    ifstream myfile(argv[2]);
-    getline(myfile, linefps);
+    std::ifstream myfile(argv[2]);
+    std::getline(myfile, linefps);
     //int fps_new = stoi(linefps, 0, 10);
     int fps_new;
-    istringstream(linefps) >> fps_new;
+    std::istringstream(linefps) >> fps_new;
     int fps = cap.get(CV_CAP_PROP_FPS);
     int skip = (fps/fps_new) - 1;
     myfile.close();
@@ -49,13 +49,13 @@ int main(int argc, char *argv[]){
     //////////////////// CALIBRA HOUGH CIRCLES /////////////////
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
-    if(atoi(argv[3])){
+    if(std::atoi(argv[3])){
         for(float hough_param1 = 60; hough_param1 < 80; hough_param1=hough_param1+2){
             for(float hough_param2 = 10; hough_param2 < 30; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
-                cout << "hough_param1: " << hough_param1 << "\though_param2: " << hough_param2;
+                std::cout << "hough_param1: " << hough_param1 << "\though_param2: " << hough_param2;
                 while(1){
                     // Capture frame-by-frame in the specified frame rate fps_new
                     cap >> frame;
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]){
                     //(e conferir se ajuda no processamento)
                     circles = hough.run(frame);
 
-                    Point center(-1, -1);
+                    cv::Point center(-1, -1);
                     int radius = -1;
                     //for single circle
                     if(circles.size() > 0){
@@ -81,12 +81,12 @@ int main(int argc, char *argv[]){
                     int gotItRight = evaluator.add(center, frame);
                     
                     #ifdef DEBUG
-                        imshow("debug", frame);
+                        cv::imshow("debug", frame);
 
                         char c=(char)waitKey(0);
                         // If the frame is empty or esc, break immediately
                         if (c == 27){
-                            cout << "BREAK" << endl;
+                            std::cout << "BREAK" << std::endl;
                             break;
                         }
                     #endif
@@ -97,31 +97,31 @@ int main(int argc, char *argv[]){
 
                 }
                 float hough_total = evaluator.evaluate()*100;
-                cout << "\though_total: " << hough_total << "%";
+                std::cout << "\though_total: " << hough_total << "%";
                 if(hough_total > best.hough_total){
                     best.hough_total = hough_total;
                     best.hough_param1 = hough_param1;
                     best.hough_param2 = hough_param2;
-                    cout << "\tBEST SO FAR!" << endl;
+                    std::cout << "\tBEST SO FAR!" << std::endl;
                 }else{
-                    cout << endl;
+                    std::cout << std::endl;
                 }
 
             }
         }
         
-        cout << "///////////////////////////////////////////////////////////////" << 
-        endl << "BEST SET IS: \though_param1: " << best.hough_param1 <<
+        std::cout << "///////////////////////////////////////////////////////////////" << 
+        std::endl << "BEST SET IS: \though_param1: " << best.hough_param1 <<
         "\though_param2: " << best.hough_param2 <<
         "\though_total: " << best.hough_total <<
-        endl << "///////////////////////////////////////////////////////////////" << endl;
+        std::endl << "///////////////////////////////////////////////////////////////" << std::endl;
     }
 
     ////////////////////////////////////////////////////////////
     //////////////////// CALIBRA PIXELCOUNT ////////////////////
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
-    if(atoi(argv[4])){
+    if(std::atoi(argv[4])){
         for(float pixel_param1 = 0.01; pixel_param1 < 0.30; pixel_param1=pixel_param1+0.02){
             for(float pixel_param2 = 0.00; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.02){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
@@ -130,7 +130,7 @@ int main(int argc, char *argv[]){
                 //pixel_param1 = branco      pixel_param2 => preto
                 pixelCountCheck pixelChecker(pixel_param1, pixel_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
-                cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << endl;
+                std::cout << "pixel_param1: " << pixel_param1 << "\tpixel_param2: " << pixel_param2 << std::endl;
                 while(1){
                     // Capture frame-by-frame in the specified frame rate fps_new
                     cap >> frame;
@@ -145,7 +145,7 @@ int main(int argc, char *argv[]){
                     //(e conferir se ajuda no processamento)
                     circles = hough.run(frame);
 
-                    Point center(-1, -1);
+                    cv::Point center(-1, -1);
                     int radius = -1;
 
                     //for single circle
@@ -164,12 +164,12 @@ int main(int argc, char *argv[]){
                     int gotItRight = evaluator.add(center, frame);
                     
                     #ifdef DEBUG
-                        imshow("debug", frame);
+                        cv::imshow("debug", frame);
 
                         char c=(char)waitKey(0);
                         // If the frame is empty or esc, break immediately
                         if (c == 27){
-                            cout << "BREAK" << endl;
+                            std::cout << "BREAK" << std::endl;
                             break;
                         }
                     #endif
@@ -180,22 +180,22 @@ int main(int argc, char *argv[]){
 
                 }
                 float pixel_total = evaluator.evaluate()*100;
-                cout << "pixel_total: " << pixel_total << "%";
+                std::cout << "pixel_total: " << pixel_total << "%";
                 if(pixel_total > best.pixel_total){
                     best.pixel_total = pixel_total;
                     best.pixel_param1 = pixel_param1;
                     best.pixel_param2 = pixel_param2;
-                    cout << "\tBEST SO FAR!" << endl;
+                    std::cout << "\tBEST SO FAR!" << std::endl;
                 }else{
-                    cout << endl;
+                    std::cout << std::endl;
                 }
             }
         }
-        cout << "///////////////////////////////////////////////////////////////" << 
-        endl << "BEST SET IS: \tpixel_param1: " << best.pixel_param1 <<
+        std::cout << "///////////////////////////////////////////////////////////////" << 
+        std::endl << "BEST SET IS: \tpixel_param1: " << best.pixel_param1 <<
         "\tpixel_param2: " << best.pixel_param2 <<
         "\tpixel_total: " << best.pixel_total <<
-        endl << "///////////////////////////////////////////////////////////////" << endl;
+        std::endl << "///////////////////////////////////////////////////////////////" << std::endl;
     }
 
 
@@ -207,7 +207,7 @@ int main(int argc, char *argv[]){
     cap.release();
 
     // Closes all the frames
-    destroyAllWindows();
+    cv::destroyAllWindows();
 
     return 0;
 

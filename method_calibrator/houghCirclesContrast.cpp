@@ -7,7 +7,7 @@ houghCirclesContrast::houghCirclesContrast(int param1, int param2, float resize_
     this->resize_factor = resize_factor; //resize factor
 }
 
-vector<Vec3f> houghCirclesContrast::run(Mat frame){
+std::vector<cv::Vec3f> houghCirclesContrast::run(cv::Mat frame){
 
     this->dp = 1;
     this->minDist = frame.rows/8;
@@ -23,15 +23,15 @@ vector<Vec3f> houghCirclesContrast::run(Mat frame){
     maxRadius – Maximum circle radius.
     */
 
-    vector<Vec3f> circles;
+    std::vector<cv::Vec3f> circles;
 
-    Mat gray;
+    cv::Mat gray;
 
     // resize
-    cvtColor(frame, gray, COLOR_BGR2GRAY);
-    resize(gray, gray, Size(), resize_factor, resize_factor);
+    cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+    resize(gray, gray, cv::Size(), resize_factor, resize_factor);
 
-    HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
+    cv::HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
 
     /*
     for( size_t i = 0; i < circles.size(); i++ )

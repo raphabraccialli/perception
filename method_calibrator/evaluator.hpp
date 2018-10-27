@@ -7,30 +7,27 @@
 #include <cmath>
 #include <opencv2/opencv.hpp>
 
-using namespace std;
-using namespace cv;
-
 #ifndef EVALUATOR_H
 #define EVALUATOR_H
 
 class evaluator
 {
 public:
-	evaluator(String name_file, float a, float b);
+	evaluator(cv::String name_file, float a, float b);
 	
-	int add(Point p, Mat frame);
+	int add(cv::Point p, cv::Mat frame);
 	float evaluate();
 
 	float a, b; 						//coeficientes lineares
-	vector<Point> ballPos;				//vector of coordinates of the center of the ball in each frame
-	vector<bool> score;
+	std::vector<cv::Point> ballPos;				//vector of coordinates of the center of the ball in each frame
+	std::vector<bool> score;
 
 	int index, fps;
 
 };
 
-int dbg_imshow(Mat frame);
+int dbg_imshow(cv::Mat frame);
 
-int dbg_circle(Mat frame, Point center, int radius, int color);
+int dbg_circle(cv::Mat frame, cv::Point center, int radius, int color);
 
 #endif

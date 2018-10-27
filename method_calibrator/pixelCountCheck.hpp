@@ -7,9 +7,6 @@
 #include <cmath>
 #include <opencv2/opencv.hpp>
 
-using namespace std;
-using namespace cv;
-
 #ifndef PIXELCOUNTCHECK_H
 #define PIXELCOUNTCHECK_H
 
@@ -22,7 +19,7 @@ public:
 	// area = r² * pi
 	float whiteMin, blackMin, resize_factor;
 
-	float run(Vec3f candidate, Mat whiteMask, Mat blackMask, Mat frame);
+	float run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat blackMask, cv::Mat frame);
 };
 
 #endif
