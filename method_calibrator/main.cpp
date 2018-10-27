@@ -50,8 +50,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(float hough_param1 = 60; hough_param1 < 80; hough_param1=hough_param1+2){
-            for(float hough_param2 = 10; hough_param2 < 30; hough_param2=hough_param2+2){
+        for(float hough_param1 = 78; hough_param1 < 80; hough_param1=hough_param1+2){
+            for(float hough_param2 = 28; hough_param2 < 30; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
@@ -144,7 +144,6 @@ int main(int argc, char *argv[]){
                     // frame * greenMask para eliminar circulos fora do campo
                     //(e conferir se ajuda no processamento)
                     circles = hough.run(frame);
-
                     cv::Point center(-1, -1);
                     int radius = -1;
 
