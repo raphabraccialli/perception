@@ -16,7 +16,7 @@ int main(int argc, char *argv[]){
 
     // Create a VideoCapture object and open the input file
     // If the input is the web camera, pass 0 instead of the video file name
-    VideoCapture cap(argv[1]);
+    cv::VideoCapture cap(argv[1]);
 
     // Check if camera opened successfully
     if(!cap.isOpened()){
@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
     quaternaryMask Mask;
     Mask.setMask(50, 200, 60, 30, 10, resize_factor);
 
-    string linefps;
+    std::string linefps;
     std::ifstream myfile(argv[2]);
     std::getline(myfile, linefps);
     //int fps_new = stoi(linefps, 0, 10);
