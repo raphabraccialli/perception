@@ -9,7 +9,7 @@ sizeCheck::sizeCheck(float a, float b){
 
 }
 
-int sizeCheck::run(vector<Vec3f> circles){
+int sizeCheck::run(std::vector<cv::Vec3f> circles){
 	
 	for(int i=0; i < circles.size(); i++){
 		float expected = (circles[i][1] * a + b);
