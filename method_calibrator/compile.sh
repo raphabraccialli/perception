@@ -4,5 +4,5 @@ echo "diretorio recirado"
 cd build
 cmake ..
 echo "cmaking"
-make
+make -j2
 echo "making"
