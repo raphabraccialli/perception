@@ -7,9 +7,6 @@
 #include <cmath>
 #include <opencv2/opencv.hpp>
 
-using namespace std;
-using namespace cv;
-
 #ifndef SIZECHECK_H
 #define SIZECHECK_H
 
@@ -19,7 +16,7 @@ public:
 	sizeCheck(float a, float b);
 
 	float a, b;
-	int run(vector<Vec3f> circles);
+	int run(std::vector<cv::Vec3f> circles);
 };
 
 #endif

@@ -12,26 +12,26 @@ void quaternaryMask::setMask(int blackLMax, int whiteLMin, int greenHMean, int g
 
 }
 
-void quaternaryMask::generateMask(Mat frame){
-    Mat maskHLS;
+void quaternaryMask::generateMask(cv::Mat frame){
+    cv::Mat maskHLS;
 
     // Resizes the shit out of this fucking matrix, mate
-    resize(frame, frame, Size(), this->resize_factor, this->resize_factor);
+    cv::resize(frame, frame, cv::Size(), this->resize_factor, this->resize_factor);
 
     // Converts to HSV colorspace
-    cvtColor(frame, maskHLS, COLOR_BGR2HLS);
+    cv::cvtColor(frame, maskHLS, cv::COLOR_BGR2HLS);
 
     // As each pixel is going to be classified in one of four categories
     // we start by detecting the easiest one so we can move to more difficult ones later
     // We should go: white, green, black, others (left)
 
     // White Threshold
-    inRange(maskHLS, Scalar(0, whiteLMin, 0), Scalar(255, 255, 255), this->whiteMask);
+    cv::inRange(maskHLS, cv::Scalar(0, whiteLMin, 0), cv::Scalar(255, 255, 255), this->whiteMask);
 
     // Green Threshold
-    inRange(maskHLS, Scalar(greenHMean-greenHVar, blackLMax, greenSMin), Scalar(greenHMean+greenHVar, whiteLMin, 255), this->greenMask);
+    inRange(maskHLS, cv::Scalar(greenHMean-greenHVar, blackLMax, greenSMin), cv::Scalar(greenHMean+greenHVar, whiteLMin, 255), this->greenMask);
 
     // Black Threshold
-    inRange(maskHLS, Scalar(0, 0, 0), Scalar(255, blackLMax, 255), this->blackMask);
+    inRange(maskHLS, cv::Scalar(0, 0, 0), cv::Scalar(255, blackLMax, 255), this->blackMask);
 
 }

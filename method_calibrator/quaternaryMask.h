@@ -6,9 +6,6 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-using namespace cv;
-
 #ifndef QUATERNARYMASK_H
 #define QUATERNARYMASK_H
 
@@ -22,7 +19,7 @@ public:
 
     int blackLMax, whiteLMin, greenHMean, greenHVar, greenSMin;
 
-    Mat blackMask, whiteMask, greenMask;
+    cv::Mat blackMask, whiteMask, greenMask;
 
     void setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin, float resize_factor);
     void generateMask(cv::Mat image);
