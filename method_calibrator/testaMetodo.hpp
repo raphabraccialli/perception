@@ -15,7 +15,7 @@ class testaMetodo
 public:
 	testaMetodo(char* name_file, float a, float b);
 
-	int testa(cv::string nome_gabarito);
+	int testa(std::string nome_gabarito);
 
 	bool evaluate(cv::Point p);
 
