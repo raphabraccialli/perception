@@ -1,9 +1,17 @@
-#include "pixelCountCheck.hpp"
-#include "quaternaryMask.h"
-#include "houghCirclesContrast.h"
-#include "evaluator.hpp"
+#include "../classes/pixelCountCheck.hpp"
+#include "../classes/quaternaryMask.h"
+#include "../classes/houghCirclesContrast.h"
+#include "../classes/evaluator.hpp"
 
 //#define DEBUG 1 //usar junto com debug da evaluator.cpp
+
+#define BLACK_L_MAX 50
+#define WHITE_L_MIN 200
+#define GREEN_H_MEAN 60
+#define GREEN_H_VAR 30
+#define GREEN_S_MIN 10
+
+#define RESIZE_FACTOR 0.25
 
 struct param_set{
     float hough_param1, hough_param2, hough_total;
@@ -25,13 +33,13 @@ int main(int argc, char *argv[]){
     }
 
 
-    float resize_factor = 0.25;
+    float resize_factor = RESIZE_FACTOR;
 
     cv::Mat frame;
     std::vector<cv::Vec3f> circles;
 
     quaternaryMask Mask;
-    Mask.setMask(50, 200, 60, 30, 10, resize_factor);
+    Mask.setMask(BLACK_L_MAX, WHITE_L_MIN, GREEN_H_MEAN, GREEN_H_VAR, GREEN_S_MIN, resize_factor);
 
     std::string linefps;
     std::ifstream myfile(argv[2]);
@@ -43,15 +51,15 @@ int main(int argc, char *argv[]){
     int skip = (fps/fps_new) - 1;
     myfile.close();
 
-    param_set best = {0}; //conferir isso aqui
+    param_set best = {0};
 
     ////////////////////////////////////////////////////////////
     //////////////////// CALIBRA HOUGH CIRCLES /////////////////
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(float hough_param1 = 78; hough_param1 < 80; hough_param1=hough_param1+2){
-            for(float hough_param2 = 28; hough_param2 < 30; hough_param2=hough_param2+2){
+        for(float hough_param1 = 24; hough_param1 < 26; hough_param1=hough_param1+2){
+            for(float hough_param2 = 4; hough_param2 < 6; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
@@ -83,7 +91,7 @@ int main(int argc, char *argv[]){
                     #ifdef DEBUG
                         cv::imshow("debug", frame);
 
-                        char c=(char)waitKey(0);
+                        char c=(char)cv::waitKey(0);
                         // If the frame is empty or esc, break immediately
                         if (c == 27){
                             std::cout << "BREAK" << std::endl;
@@ -122,8 +130,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.01; pixel_param1 < 0.30; pixel_param1=pixel_param1+0.02){
-            for(float pixel_param2 = 0.00; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.02){
+        for(float pixel_param1 = 0.00; pixel_param1 < 0.55; pixel_param1=pixel_param1+0.05){
+            for(float pixel_param2 = 0.00; pixel_param2 < 0.35; pixel_param2=pixel_param2+0.05){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, resize_factor);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
@@ -154,6 +162,7 @@ int main(int argc, char *argv[]){
                             if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame)){
                                 center.x = cvRound(circles[i][0]);
                                 center.y = cvRound(circles[i][1]);
+                                radius = cvRound(circles[i][2]);
                                 //primeiro que aceita o threshold ->break
                                 break;
                             }
@@ -165,7 +174,7 @@ int main(int argc, char *argv[]){
                     #ifdef DEBUG
                         cv::imshow("debug", frame);
 
-                        char c=(char)waitKey(0);
+                        char c=(char)cv::waitKey(0);
                         // If the frame is empty or esc, break immediately
                         if (c == 27){
                             std::cout << "BREAK" << std::endl;
@@ -180,7 +189,7 @@ int main(int argc, char *argv[]){
                 }
                 float pixel_total = evaluator.evaluate()*100;
                 std::cout << "pixel_total: " << pixel_total << "%";
-                if(pixel_total > best.pixel_total){
+                if(pixel_total >= best.pixel_total){
                     best.pixel_total = pixel_total;
                     best.pixel_param1 = pixel_param1;
                     best.pixel_param2 = pixel_param2;

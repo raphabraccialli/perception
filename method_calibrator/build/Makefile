@@ -111,77 +111,173 @@ method_calibrator/fast:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/build
 .PHONY : method_calibrator/fast
 
-bhuman_ish.o: bhuman_ish.cpp.o
-.PHONY : bhuman_ish.o
+home/raphael/nao/workspace/perception/classes/bhuman_ish.o: home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.o
 
 # target to build an object file
-bhuman_ish.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.o
-.PHONY : bhuman_ish.cpp.o
+home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o
 
-bhuman_ish.i: bhuman_ish.cpp.i
-.PHONY : bhuman_ish.i
+home/raphael/nao/workspace/perception/classes/bhuman_ish.i: home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.i
 
 # target to preprocess a source file
-bhuman_ish.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.i
-.PHONY : bhuman_ish.cpp.i
+home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.i
 
-bhuman_ish.s: bhuman_ish.cpp.s
-.PHONY : bhuman_ish.s
+home/raphael/nao/workspace/perception/classes/bhuman_ish.s: home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.s
 
 # target to generate assembly for a file
-bhuman_ish.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/bhuman_ish.cpp.s
-.PHONY : bhuman_ish.cpp.s
+home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s
 
-evaluator.o: evaluator.cpp.o
-.PHONY : evaluator.o
+home/raphael/nao/workspace/perception/classes/evaluator.o: home/raphael/nao/workspace/perception/classes/evaluator.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.o
 
 # target to build an object file
-evaluator.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/evaluator.cpp.o
-.PHONY : evaluator.cpp.o
+home/raphael/nao/workspace/perception/classes/evaluator.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.cpp.o
 
-evaluator.i: evaluator.cpp.i
-.PHONY : evaluator.i
+home/raphael/nao/workspace/perception/classes/evaluator.i: home/raphael/nao/workspace/perception/classes/evaluator.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.i
 
 # target to preprocess a source file
-evaluator.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/evaluator.cpp.i
-.PHONY : evaluator.cpp.i
+home/raphael/nao/workspace/perception/classes/evaluator.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.cpp.i
 
-evaluator.s: evaluator.cpp.s
-.PHONY : evaluator.s
+home/raphael/nao/workspace/perception/classes/evaluator.s: home/raphael/nao/workspace/perception/classes/evaluator.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.s
 
 # target to generate assembly for a file
-evaluator.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/evaluator.cpp.s
-.PHONY : evaluator.cpp.s
+home/raphael/nao/workspace/perception/classes/evaluator.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/evaluator.cpp.s
 
-houghCirclesContrast.o: houghCirclesContrast.cpp.o
-.PHONY : houghCirclesContrast.o
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.o: home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.o
 
 # target to build an object file
-houghCirclesContrast.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.o
-.PHONY : houghCirclesContrast.cpp.o
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o
 
-houghCirclesContrast.i: houghCirclesContrast.cpp.i
-.PHONY : houghCirclesContrast.i
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.i: home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.i
 
 # target to preprocess a source file
-houghCirclesContrast.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.i
-.PHONY : houghCirclesContrast.cpp.i
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.i
 
-houghCirclesContrast.s: houghCirclesContrast.cpp.s
-.PHONY : houghCirclesContrast.s
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.s: home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.s
 
 # target to generate assembly for a file
-houghCirclesContrast.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/houghCirclesContrast.cpp.s
-.PHONY : houghCirclesContrast.cpp.s
+home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.s
+
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.o: home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.o
+
+# target to build an object file
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o
+
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.i: home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.i
+
+# target to preprocess a source file
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.i
+
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.s: home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.s
+
+# target to generate assembly for a file
+home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.s
+
+home/raphael/nao/workspace/perception/classes/quaternaryMask.o: home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.o
+
+# target to build an object file
+home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o
+
+home/raphael/nao/workspace/perception/classes/quaternaryMask.i: home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.i
+
+# target to preprocess a source file
+home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.i
+
+home/raphael/nao/workspace/perception/classes/quaternaryMask.s: home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.s
+
+# target to generate assembly for a file
+home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.s
+
+home/raphael/nao/workspace/perception/classes/sizeCheck.o: home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.o
+
+# target to build an object file
+home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o
+
+home/raphael/nao/workspace/perception/classes/sizeCheck.i: home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.i
+
+# target to preprocess a source file
+home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.i
+
+home/raphael/nao/workspace/perception/classes/sizeCheck.s: home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.s
+
+# target to generate assembly for a file
+home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.s
+
+home/raphael/nao/workspace/perception/classes/testaMetodo.o: home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.o
+
+# target to build an object file
+home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o
+
+home/raphael/nao/workspace/perception/classes/testaMetodo.i: home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.i
+
+# target to preprocess a source file
+home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.i
+
+home/raphael/nao/workspace/perception/classes/testaMetodo.s: home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.s
+
+# target to generate assembly for a file
+home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -207,102 +303,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-pixelCountCheck.o: pixelCountCheck.cpp.o
-.PHONY : pixelCountCheck.o
-
-# target to build an object file
-pixelCountCheck.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.o
-.PHONY : pixelCountCheck.cpp.o
-
-pixelCountCheck.i: pixelCountCheck.cpp.i
-.PHONY : pixelCountCheck.i
-
-# target to preprocess a source file
-pixelCountCheck.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.i
-.PHONY : pixelCountCheck.cpp.i
-
-pixelCountCheck.s: pixelCountCheck.cpp.s
-.PHONY : pixelCountCheck.s
-
-# target to generate assembly for a file
-pixelCountCheck.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/pixelCountCheck.cpp.s
-.PHONY : pixelCountCheck.cpp.s
-
-quaternaryMask.o: quaternaryMask.cpp.o
-.PHONY : quaternaryMask.o
-
-# target to build an object file
-quaternaryMask.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.o
-.PHONY : quaternaryMask.cpp.o
-
-quaternaryMask.i: quaternaryMask.cpp.i
-.PHONY : quaternaryMask.i
-
-# target to preprocess a source file
-quaternaryMask.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.i
-.PHONY : quaternaryMask.cpp.i
-
-quaternaryMask.s: quaternaryMask.cpp.s
-.PHONY : quaternaryMask.s
-
-# target to generate assembly for a file
-quaternaryMask.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/quaternaryMask.cpp.s
-.PHONY : quaternaryMask.cpp.s
-
-sizeCheck.o: sizeCheck.cpp.o
-.PHONY : sizeCheck.o
-
-# target to build an object file
-sizeCheck.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.o
-.PHONY : sizeCheck.cpp.o
-
-sizeCheck.i: sizeCheck.cpp.i
-.PHONY : sizeCheck.i
-
-# target to preprocess a source file
-sizeCheck.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.i
-.PHONY : sizeCheck.cpp.i
-
-sizeCheck.s: sizeCheck.cpp.s
-.PHONY : sizeCheck.s
-
-# target to generate assembly for a file
-sizeCheck.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/sizeCheck.cpp.s
-.PHONY : sizeCheck.cpp.s
-
-testaMetodo.o: testaMetodo.cpp.o
-.PHONY : testaMetodo.o
-
-# target to build an object file
-testaMetodo.cpp.o:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/testaMetodo.cpp.o
-.PHONY : testaMetodo.cpp.o
-
-testaMetodo.i: testaMetodo.cpp.i
-.PHONY : testaMetodo.i
-
-# target to preprocess a source file
-testaMetodo.cpp.i:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/testaMetodo.cpp.i
-.PHONY : testaMetodo.cpp.i
-
-testaMetodo.s: testaMetodo.cpp.s
-.PHONY : testaMetodo.s
-
-# target to generate assembly for a file
-testaMetodo.cpp.s:
-	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/testaMetodo.cpp.s
-.PHONY : testaMetodo.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -312,30 +312,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... method_calibrator"
 	@echo "... rebuild_cache"
-	@echo "... bhuman_ish.o"
-	@echo "... bhuman_ish.i"
-	@echo "... bhuman_ish.s"
-	@echo "... evaluator.o"
-	@echo "... evaluator.i"
-	@echo "... evaluator.s"
-	@echo "... houghCirclesContrast.o"
-	@echo "... houghCirclesContrast.i"
-	@echo "... houghCirclesContrast.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/houghCirclesContrast.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/houghCirclesContrast.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/houghCirclesContrast.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/pixelCountCheck.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/pixelCountCheck.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/pixelCountCheck.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/quaternaryMask.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/quaternaryMask.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/quaternaryMask.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/sizeCheck.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/sizeCheck.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/sizeCheck.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/testaMetodo.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/testaMetodo.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/testaMetodo.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... pixelCountCheck.o"
-	@echo "... pixelCountCheck.i"
-	@echo "... pixelCountCheck.s"
-	@echo "... quaternaryMask.o"
-	@echo "... quaternaryMask.i"
-	@echo "... quaternaryMask.s"
-	@echo "... sizeCheck.o"
-	@echo "... sizeCheck.i"
-	@echo "... sizeCheck.s"
-	@echo "... testaMetodo.o"
-	@echo "... testaMetodo.i"
-	@echo "... testaMetodo.s"
 .PHONY : help
 
 

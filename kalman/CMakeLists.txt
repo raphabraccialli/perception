@@ -1,0 +1,7 @@
+project(method_calibrator)
+cmake_minimum_required(VERSION 2.8)
+find_package( OpenCV REQUIRED )
+aux_source_directory(../classes/. SRC_LIST)
+aux_source_directory(. MAIN)
+add_executable(${PROJECT_NAME} ${SRC_LIST} ${MAIN})
+target_link_libraries( ${PROJECT_NAME} ${OpenCV_LIBS} )
