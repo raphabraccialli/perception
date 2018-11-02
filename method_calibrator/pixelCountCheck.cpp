@@ -22,7 +22,6 @@ float pixelCountCheck::run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat black
 
 	circle(canvas, center, radius, cv::Scalar(255,255,255), -1, 8, 0 );
 
-	std::cout << "whiteMask: " << whiteMask.rows << "\tcanvas: " << canvas.rows << std::endl;
 	cv::bitwise_and(canvas, whiteMask, maskedWhite);
 	cv::bitwise_and(canvas, blackMask, maskedBlack);
 
