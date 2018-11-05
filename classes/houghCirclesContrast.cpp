@@ -1,18 +1,18 @@
 #include "houghCirclesContrast.h"
 
-houghCirclesContrast::houghCirclesContrast(int param1, int param2, float resize_factor)
+houghCirclesContrast::houghCirclesContrast(double param1, double param2, double minDist, int minRadius, int maxRadius)
 {
     this->param1 = param1; //thresh canny
     this->param2 = param2; //thresh acumulador
-    this->resize_factor = resize_factor; //resize factor
+    this->minDist = minDist; //min distance between balls
+    this->minRadius = minRadius; // min ball radius
+    this->maxRadius = maxRadius; // max ball radius
+
 }
 
 std::vector<cv::Vec3f> houghCirclesContrast::run(cv::Mat frame){
 
     this->dp = 1;
-    this->maxRadius = 60 * resize_factor;
-    this->minRadius = 10 * resize_factor;
-    this->minDist = this->minRadius/2;
 
     /*
     dp – Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.
@@ -29,27 +29,9 @@ std::vector<cv::Vec3f> houghCirclesContrast::run(cv::Mat frame){
 
     // resize
     cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
-    resize(gray, gray, cv::Size(), resize_factor, resize_factor);
     cv::imshow("gray", gray);
 
     cv::HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
-
-    /*
-    for( size_t i = 0; i < circles.size(); i++ )
-    {
-        Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
-        int radius = cvRound(circles[i][2]);
-        // circle outline
-        circle( gray, center, radius, Scalar(255,255,255), 3, 8, 0 );
-
-    }*/
-
-    for( size_t i = 0; i < circles.size(); i++ )
-        {
-            circles[i][0] *= 1/resize_factor;
-            circles[i][1] *= 1/resize_factor;
-            circles[i][2] *= 1/resize_factor;
-        }
 
     return circles;
 

@@ -1,3 +1,4 @@
 - fazerSizeCheck
 - avaliador com raio da bola /2 ou /4
 - KALMAN
+- ver raio do acumulador no houghcircles

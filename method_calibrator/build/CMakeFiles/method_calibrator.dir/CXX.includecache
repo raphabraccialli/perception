@@ -26,6 +26,28 @@ string
 vector
 -
 
+/home/raphael/nao/workspace/perception/classes/dilate.cpp
+dilate.hpp
+/home/raphael/nao/workspace/perception/classes/dilate.hpp
+
+/home/raphael/nao/workspace/perception/classes/dilate.hpp
+iostream
+-
+stdlib.h
+-
+fstream
+-
+iterator
+-
+string
+-
+vector
+-
+cmath
+-
+opencv2/opencv.hpp
+-
+
 /home/raphael/nao/workspace/perception/classes/evaluator.cpp
 evaluator.hpp
 /home/raphael/nao/workspace/perception/classes/evaluator.hpp
@@ -163,4 +185,6 @@ opencv2/opencv.hpp
 /home/raphael/nao/workspace/perception/classes/houghCirclesContrast.h
 ../classes/evaluator.hpp
 /home/raphael/nao/workspace/perception/classes/evaluator.hpp
+../classes/dilate.hpp
+/home/raphael/nao/workspace/perception/classes/dilate.hpp
 

@@ -2,21 +2,17 @@
 
 //#define DEBUG 1
 
-void quaternaryMask::setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin, float resize_factor){
+void quaternaryMask::setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin){
     this->blackLMax = blackLMax;
     this->whiteLMin = whiteLMin;
     this->greenHMean = greenHMean;
     this->greenHVar = greenHVar;
     this->greenSMin = greenSMin;
-    this->resize_factor = resize_factor;
 
 }
 
 void quaternaryMask::generateMask(cv::Mat frame){
     cv::Mat maskHLS;
-
-    // Resizes the shit out of this fucking matrix, mate
-    cv::resize(frame, frame, cv::Size(), this->resize_factor, this->resize_factor);
 
     // Converts to HSV colorspace
     cv::cvtColor(frame, maskHLS, cv::COLOR_BGR2HLS);

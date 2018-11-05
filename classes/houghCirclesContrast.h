@@ -13,11 +13,10 @@
 class houghCirclesContrast
 {
 public:
-    houghCirclesContrast(int param, int param2, float resize_factor);
+    houghCirclesContrast(double param1, double param2, double minDist, int minRadius, int maxRadius);
 
     double dp, minDist, param1, param2;
     int maxRadius, minRadius;
-    float resize_factor;
 
     std::vector<cv::Vec3f> run(cv::Mat frame);
 };

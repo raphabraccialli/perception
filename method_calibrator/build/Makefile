@@ -150,6 +150,33 @@ home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s
 .PHONY : home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.s
 
+home/raphael/nao/workspace/perception/classes/dilate.o: home/raphael/nao/workspace/perception/classes/dilate.cpp.o
+
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.o
+
+# target to build an object file
+home/raphael/nao/workspace/perception/classes/dilate.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.cpp.o
+
+home/raphael/nao/workspace/perception/classes/dilate.i: home/raphael/nao/workspace/perception/classes/dilate.cpp.i
+
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.i
+
+# target to preprocess a source file
+home/raphael/nao/workspace/perception/classes/dilate.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.i
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.cpp.i
+
+home/raphael/nao/workspace/perception/classes/dilate.s: home/raphael/nao/workspace/perception/classes/dilate.cpp.s
+
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.s
+
+# target to generate assembly for a file
+home/raphael/nao/workspace/perception/classes/dilate.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.s
+.PHONY : home/raphael/nao/workspace/perception/classes/dilate.cpp.s
+
 home/raphael/nao/workspace/perception/classes/evaluator.o: home/raphael/nao/workspace/perception/classes/evaluator.cpp.o
 
 .PHONY : home/raphael/nao/workspace/perception/classes/evaluator.o
@@ -351,6 +378,9 @@ help:
 	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.o"
 	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.i"
 	@echo "... home/raphael/nao/workspace/perception/classes/bhuman_ish.s"
+	@echo "... home/raphael/nao/workspace/perception/classes/dilate.o"
+	@echo "... home/raphael/nao/workspace/perception/classes/dilate.i"
+	@echo "... home/raphael/nao/workspace/perception/classes/dilate.s"
 	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.o"
 	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.i"
 	@echo "... home/raphael/nao/workspace/perception/classes/evaluator.s"

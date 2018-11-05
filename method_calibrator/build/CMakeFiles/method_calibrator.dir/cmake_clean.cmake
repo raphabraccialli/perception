@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o"
+  "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o"

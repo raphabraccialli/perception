@@ -81,9 +81,33 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/b
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o
 
 
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o: /home/raphael/nao/workspace/perception/classes/dilate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o -c /home/raphael/nao/workspace/perception/classes/dilate.cpp
+
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/raphael/nao/workspace/perception/classes/dilate.cpp > CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.i
+
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/raphael/nao/workspace/perception/classes/dilate.cpp -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.s
+
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.requires:
+
+.PHONY : CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.requires
+
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.provides: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.requires
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.provides.build
+.PHONY : CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.provides
+
+CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o
+
+
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o: /home/raphael/nao/workspace/perception/classes/evaluator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o -c /home/raphael/nao/workspace/perception/classes/evaluator.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/e
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o: /home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o -c /home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/h
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o: /home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o -c /home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/p
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o: /home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.o -c /home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/quaternaryMask.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/q
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o: /home/raphael/nao/workspace/perception/classes/sizeCheck.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.o -c /home/raphael/nao/workspace/perception/classes/sizeCheck.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/sizeCheck.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/s
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o: /home/raphael/nao/workspace/perception/classes/testaMetodo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.o -c /home/raphael/nao/workspace/perception/classes/testaMetodo.cpp
 
 CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/testaMetodo.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/t
 
 CMakeFiles/method_calibrator.dir/main.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/method_calibrator.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/method_calibrator.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/main.cpp.o -c /home/raphael/nao/workspace/perception/method_calibrator/main.cpp
 
 CMakeFiles/method_calibrator.dir/main.cpp.i: cmake_force
@@ -252,6 +276,7 @@ CMakeFiles/method_calibrator.dir/main.cpp.o.provides.build: CMakeFiles/method_ca
 # Object files for target method_calibrator
 method_calibrator_OBJECTS = \
 "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o" \
+"CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o" \
@@ -264,6 +289,7 @@ method_calibrator_OBJECTS = \
 method_calibrator_EXTERNAL_OBJECTS =
 
 method_calibrator: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o
+method_calibrator: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o
@@ -314,7 +340,7 @@ method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_imgcodecs.so.3.2.0
 method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.3.2.0
 method_calibrator: /usr/lib/x86_64-linux-gnu/libopencv_core.so.3.2.0
 method_calibrator: CMakeFiles/method_calibrator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable method_calibrator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable method_calibrator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/method_calibrator.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -323,6 +349,7 @@ CMakeFiles/method_calibrator.dir/build: method_calibrator
 .PHONY : CMakeFiles/method_calibrator.dir/build
 
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/bhuman_ish.cpp.o.requires
+CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/dilate.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/evaluator.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/houghCirclesContrast.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/raphael/nao/workspace/perception/classes/pixelCountCheck.cpp.o.requires
