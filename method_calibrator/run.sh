@@ -1,1 +1,1 @@
-./build/method_calibrator ../Bola-2-Larc2018-Apartamento.avi ../apartamento.txt 1 1
+./build/method_calibrator ../apartamento_iluminado_bottom.avi ../apartamento_iluminado_bottom.txt 1 1

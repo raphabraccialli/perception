@@ -40,7 +40,7 @@ static void on_high_S_thresh_trackbar(int, void *)
 int main(int argc, char* argv[])
 {
     //VideoCapture cap(argc > 1 ? argv[1] : 0);
-    VideoCapture cap("../Bola-2-Larc2018-Apartamento.avi");
+    VideoCapture cap("../apartamento_iluminado_bottom.avi");
     namedWindow(window_capture_name);
     namedWindow(window_detection_name);
     // Trackbars to set thresholds for HSV values

@@ -4,18 +4,18 @@
 #include "../classes/evaluator.hpp"
 #include "../classes/dilate.hpp"
 
-//#define DEBUG 1 //usar junto com debug da evaluator.cpp
+// #define DEBUG 1 //usar junto com debug da evaluator.cpp
 
-#define BLACK_L_MAX 90
-#define WHITE_L_MIN 160
+#define BLACK_L_MAX 40
+#define WHITE_L_MIN 200
 #define GREEN_H_MEAN 50
-#define GREEN_H_VAR 10
-#define GREEN_S_MIN 50
+#define GREEN_H_VAR 20
+#define GREEN_S_MIN 40
 
-#define MIN_RADIUS 5
-#define MAX_RADIUS 15
+#define MIN_RADIUS 10
+#define MAX_RADIUS 30
 
-#define DILATION 5
+#define DILATION 1
 
 #define N_OF_CANDIDATES 10
 
@@ -77,8 +77,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(double hough_param1 = 48; hough_param1 < 50; hough_param1=hough_param1+2){
-            for(double hough_param2 = 2; hough_param2 < 4; hough_param2=hough_param2+2){
+        for(double hough_param1 = 60; hough_param1 < 62; hough_param1=hough_param1+2){
+            for(double hough_param2 = 1; hough_param2 < 3; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, 30, (int)MIN_RADIUS, (int)MAX_RADIUS);
                 evaluator evaluator(argv[2], 0.04, 10);
@@ -171,8 +171,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.01; pixel_param1 < 0.20; pixel_param1=pixel_param1+0.01){
-            for(float pixel_param2 = 0.01; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.01){
+        for(float pixel_param1 = 0.02; pixel_param1 < 0.30; pixel_param1=pixel_param1+0.02){
+            for(float pixel_param2 = 0.02; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.02){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, (double)MIN_RADIUS/2, (int)MIN_RADIUS, (int)MAX_RADIUS);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
@@ -253,6 +253,11 @@ int main(int argc, char *argv[]){
                 }
             }
         }
+        std::cout << "///////////////////////////////////////////////////////////////" << 
+        std::endl << "BEST SET IS: \though_param1: " << best.hough_param1 <<
+        "\though_param2: " << best.hough_param2 <<
+        "\though_total: " << best.hough_total <<
+        std::endl;
         std::cout << "///////////////////////////////////////////////////////////////" << 
         std::endl << "BEST SET IS: \tpixel_param1: " << best.pixel_param1 <<
         "\tpixel_param2: " << best.pixel_param2 <<
