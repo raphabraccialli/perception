@@ -3,7 +3,7 @@
 #include "../classes/houghCirclesContrast.h"
 #include "../classes/evaluator.hpp"
 
-//#define DEBUG 1 //usar junto com debug da evaluator.cpp
+#define DEBUG 1 //usar junto com debug da evaluator.cpp
 
 #define BLACK_L_MAX 50
 #define WHITE_L_MIN 200
@@ -11,7 +11,7 @@
 #define GREEN_H_VAR 30
 #define GREEN_S_MIN 10
 
-#define RESIZE_FACTOR 0.25
+#define RESIZE_FACTOR 0.5
 
 struct param_set{
     float hough_param1, hough_param2, hough_total;
@@ -58,8 +58,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(float hough_param1 = 24; hough_param1 < 26; hough_param1=hough_param1+2){
-            for(float hough_param2 = 4; hough_param2 < 6; hough_param2=hough_param2+2){
+        for(float hough_param1 = 40; hough_param1 < 60; hough_param1=hough_param1+2){
+            for(float hough_param2 = 2; hough_param2 < 30; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, resize_factor);
                 evaluator evaluator(argv[2], 0.04, 10);
@@ -84,6 +84,9 @@ int main(int argc, char *argv[]){
                         center.x = cvRound(circles[0][0]);
                         center.y = cvRound(circles[0][1]);
                         radius = cvRound(circles[0][2]);
+                        for(int i = 0; i < circles.size(); i++){
+                            circle( frame, center, radius, cv::Scalar(255,0,0), 3, 8, 0 );
+                        }
                     }
                     //metodo da livia retorna int
                     int gotItRight = evaluator.add(center, frame);

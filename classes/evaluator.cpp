@@ -1,6 +1,6 @@
 #include "evaluator.hpp"
 
-//#define DEBUG 1 //usar junto com debug da main.cpp
+#define DEBUG 1 //usar junto com debug da main.cpp
 
 evaluator::evaluator (cv::String file_name, float a, float b){
 	this->index = 0;
@@ -66,9 +66,10 @@ int evaluator::add(cv::Point p, cv::Mat frame){
 			return 0;
 		}else{
 			//marcador verdadeiro negativo
-			this->score.push_back(true);
+			//nao conta na calibração
+			this->score.push_back(false);
 			this->index += 1;
-			return 1;
+			return 0;
 		}
 	}
 	
@@ -86,9 +87,9 @@ float evaluator::evaluate(){
 
 int dbg_circle(cv::Mat frame, cv::Point center, int radius, int color){
 	#ifdef DEBUG
-		if(color == 0) circle( frame, center, radius, Scalar(0,0,255), 3, 8, 0 );
-		else if(color == 1) circle( frame, center, radius, Scalar(0,255,0), 3, 8, 0 );
-		else if(color == 2) circle( frame, center, radius, Scalar(0,255,255), 3, 8, 0 );
+		if(color == 0) circle( frame, center, radius, cv::Scalar(0,0,255), 3, 8, 0 );
+		else if(color == 1) circle( frame, center, radius, cv::Scalar(0,255,0), 3, 8, 0 );
+		else if(color == 2) circle( frame, center, radius, cv::Scalar(0,255,255), 3, 8, 0 );
 	#endif
 	return 0;
 }

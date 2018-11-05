@@ -1,1 +1,3 @@
+/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles/rebuild_cache.dir
 /home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles/method_calibrator.dir
+/home/raphael/nao/workspace/perception/method_calibrator/build/CMakeFiles/edit_cache.dir
