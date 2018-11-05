@@ -4,7 +4,7 @@
 #include "../classes/evaluator.hpp"
 #include "../classes/dilate.hpp"
 
-// #define DEBUG 1 //usar junto com debug da evaluator.cpp
+#define DEBUG 1 //usar junto com debug da evaluator.cpp
 
 #define BLACK_L_MAX 40
 #define WHITE_L_MIN 200
@@ -54,14 +54,10 @@ int main(int argc, char *argv[]){
     Dilater.setDilation(0, DILATION * resize_factor);
 
 
-    std::string linefps;
+    std::string line_skip;
     std::ifstream myfile(argv[2]);
-    std::getline(myfile, linefps);
-    //int fps_new = stoi(linefps, 0, 10);
-    int fps_new;
-    std::istringstream(linefps) >> fps_new;
-    int fps = cap.get(CV_CAP_PROP_FPS);
-    int skip = (fps/fps_new) - 1;
+    std::getline(myfile, line_skip);
+    std::istringstream(line_skip) >> skip;
     myfile.close();
 
     param_set best;

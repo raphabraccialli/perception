@@ -39,7 +39,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata)
 }
  
 int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
-  int fps, fps_new, skip, fr_period;
+  int skip;
   bool stop = false;
 
   // Create a VideoCapture object and open the input file
@@ -48,12 +48,8 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 
   //Get the video frame rate
   fps = cap.get(CV_CAP_PROP_FPS);
-  fps_new = atoi(argv[2]);
-  skip = (fps/fps_new) - 1;
-  fr_period = 1000/fps_new;
+  skip = atoi(argv[2]);
 
-  cout << "FPS: " << fps << endl;
-  cout << "FPS_NEW: " << fps_new << endl;
   cout << "SKIP: " << skip << endl;
 
   // Check if camera opened successfully
