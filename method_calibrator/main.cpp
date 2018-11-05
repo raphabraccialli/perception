@@ -6,8 +6,8 @@
 
 //#define DEBUG 1 //usar junto com debug da evaluator.cpp
 
-#define BLACK_L_MAX 50
-#define WHITE_L_MIN 200
+#define BLACK_L_MAX 90
+#define WHITE_L_MIN 160
 #define GREEN_H_MEAN 50
 #define GREEN_H_VAR 10
 #define GREEN_S_MIN 50
@@ -17,6 +17,7 @@
 
 #define DILATION 5
 
+#define N_OF_CANDIDATES 10
 
 #define RESIZE_FACTOR 0.5
 
@@ -63,19 +64,25 @@ int main(int argc, char *argv[]){
     int skip = (fps/fps_new) - 1;
     myfile.close();
 
-    param_set best = {};
+    param_set best;
+    best.hough_param1 = 1;
+    best.hough_param2 = 1;
+    best.hough_total = 0.0;
+    best.pixel_param1 = 0.01;
+    best.pixel_param2 = 0.01;
+    best.pixel_total = 0.0;
 
     ////////////////////////////////////////////////////////////
     //////////////////// CALIBRA HOUGH CIRCLES /////////////////
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(double hough_param1 = 20; hough_param1 < 22; hough_param1=hough_param1+2){
-            for(float hough_param2 = 2; hough_param2 < 4; hough_param2=hough_param2+2){
+        for(double hough_param1 = 48; hough_param1 < 50; hough_param1=hough_param1+2){
+            for(double hough_param2 = 2; hough_param2 < 4; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, 30, (int)MIN_RADIUS, (int)MAX_RADIUS);
                 evaluator evaluator(argv[2], 0.04, 10);
-                std::cout << "hough_param1: " << hough_param1 << "\though_param2: " << hough_param2;
+                std::cout << "hough_param1: " << hough_param1 << "\though_param2: " << hough_param2 << std::endl;
                 while(1){
                     // Capture frame-by-frame in the specified frame rate fps_new
                     cap >> frame;
@@ -97,19 +104,31 @@ int main(int argc, char *argv[]){
 
                     cv::Point center(-1, -1);
                     int radius = -1;
-                    //for single circle
+
+                    bool flag = true;
                     if(circles.size() > 0){
-                        center.x = cvRound(circles[0][0]/resize_factor);
-                        center.y = cvRound(circles[0][1]/resize_factor);
-                        radius = cvRound(circles[0][2]/resize_factor);
-                        for(int i = 0; i < circles.size() && i < 10; i++){
+                        //Procura candidato valido entre as N_OF_CANDIDATES instancias
+                        for(int i = 0; i < circles.size() && i < N_OF_CANDIDATES; i++){
+                            center.x = cvRound(circles[i][0]/resize_factor);
+                            center.y = cvRound(circles[i][1]/resize_factor);
+                            radius = cvRound(circles[i][2]/resize_factor);
+                            #ifdef DEBUG
                             cv::Point center_plot(cvRound(circles[i][0]/resize_factor), cvRound(circles[i][1]/resize_factor));
                             cv::circle( frame, center_plot, cvRound(circles[i][2]/resize_factor), cv::Scalar(255,0,0), 3, 8, 0 );
+                            #endif
+
+                            if(evaluator.test(center, frame_resized)){
+                                evaluator.add(true);
+                                flag = false;
+                                break;
+                            }
                         }
                     }
-                    //metodo da livia retorna int
-                    int gotItRight = evaluator.add(center, frame_resized);
-                    
+
+                    if(flag){
+                        evaluator.add(false);
+                    }
+
                     #ifdef DEBUG
                         cv::imshow("debug", frame);
 
@@ -152,8 +171,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.06; pixel_param1 < 0.55; pixel_param1=pixel_param1+0.05){
-            for(float pixel_param2 = 0.00; pixel_param2 < 0.35; pixel_param2=pixel_param2+0.05){
+        for(float pixel_param1 = 0.01; pixel_param1 < 0.20; pixel_param1=pixel_param1+0.01){
+            for(float pixel_param2 = 0.01; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.01){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, (double)MIN_RADIUS/2, (int)MIN_RADIUS, (int)MAX_RADIUS);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
@@ -184,20 +203,27 @@ int main(int argc, char *argv[]){
 
                     //for single circle
                     if(circles.size() > 0){
-                        for(int i = 0; i < circles.size() && i < 10; i++){
+
+                        bool flag = true;
+                        for(int i = 0; i < circles.size() && i < N_OF_CANDIDATES; i++){
                             //pixelcount faz a sua mágica
 
                             if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame_resized)){
                                 center.x = cvRound(circles[i][0]/resize_factor);
                                 center.y = cvRound(circles[i][1]/resize_factor);
                                 radius = cvRound(circles[i][2]/resize_factor);
+                                if(evaluator.test(center, frame_resized)){
+                                    evaluator.add(true);
+                                    flag = false;
+                                }
                                 //primeiro que aceita o threshold ->break
                                 break;
                             }
                         }
+                        if(flag)
+                            evaluator.add(false);
                     }
-                    //metodo da livia retorna int
-                    int gotItRight = evaluator.add(center, frame);
+                
                     
                     #ifdef DEBUG
                         cv::imshow("debug", frame);

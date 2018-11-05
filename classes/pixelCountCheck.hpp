@@ -19,7 +19,7 @@ public:
 	// area = r² * pi
 	float whiteMin, blackMin;
 
-	float run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat blackMask, cv::Mat frame);
+	bool run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat blackMask, cv::Mat frame);
 };
 
 #endif

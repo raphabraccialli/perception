@@ -15,8 +15,9 @@ class evaluator
 public:
 	evaluator(cv::String name_file, float a, float b);
 	
-	int add(cv::Point p, cv::Mat frame);
+	int test(cv::Point p, cv::Mat frame);
 	float evaluate();
+	void add(bool data);
 
 	float a, b; 						//coeficientes lineares
 	std::vector<cv::Point> ballPos;				//vector of coordinates of the center of the ball in each frame
