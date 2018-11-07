@@ -1,1 +1,1 @@
-./build/method_calibrator ../apartamento_iluminado_bottom.avi ../apartamento_iluminado_bottom.txt 1 1
+./build/method_calibrator ../blobtesterobotericfolgado.avi ../gabaritoGerador/gabarito1.txt 1 1

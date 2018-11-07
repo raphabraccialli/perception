@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
   VideoCapture cap(argv[1]); 
 
   //Get the video frame rate
-  fps = cap.get(CV_CAP_PROP_FPS);
+  double fps = cap.get(CV_CAP_PROP_FPS);
   skip = atoi(argv[2]);
 
   cout << "SKIP: " << skip << endl;
@@ -78,9 +78,9 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
     imshow("Frame", frame );
  
     // Press  ESC on keyboard to exit
-    //Wait 1000/fps_new ms 
-    //char c=(char)waitKey(fr_period);
-    //if(c==27)
+    // Wait 1000/fps_new ms 
+    // char c=(char)waitKey(fr_period);
+    // if(c==27)
     //  break;
 
   	while(!flag){
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 	ofstream myfile(argv[3]);
 
 	//Saves FPS
-	myfile << fps_new << endl;
+	myfile << fps << endl;
 
 
 	if(myfile.is_open()){
