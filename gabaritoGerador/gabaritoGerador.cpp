@@ -96,7 +96,7 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
   		cap >> frame;
   }
 
-  vector<int>::iterator itX, itY;  
+  	vector<int>::iterator itX, itY;  
 
 	ofstream myfile(argv[3]);
 
@@ -114,6 +114,7 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 			itX++;
 			itY++;
 		}
+
   		myfile.close();
 	}
 	else
