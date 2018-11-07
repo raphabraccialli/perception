@@ -6,38 +6,39 @@
 #include "../classes/sizeCheck.hpp"
 #include <ctime>
 
+
 #define DEBUG 1 //usar junto com debug da evaluator.cpp
 //#define CLOCK 1 //para calcular tempo de execução
 
-#define WHITE_L_MIN 50
-#define WHITE_S_MAX 60
-#define BLACK_L_MAX 60
+#define WHITE_L_MIN 180
+#define WHITE_S_MAX 255
+#define BLACK_L_MAX 120
 #define GREEN_L_MAX 170
-#define GREEN_H_MEAN 55
+#define GREEN_H_MEAN 75
 #define GREEN_H_VAR 15
-#define GREEN_S_MIN 50
+#define GREEN_S_MIN 20
 
-#define MIN_RADIUS 5
-#define MAX_RADIUS 35
+#define MIN_RADIUS 30
+#define MAX_RADIUS 80
 
-#define DILATION 1.5
+#define DILATION 2
 
-#define N_OF_CANDIDATES 20
+#define N_OF_CANDIDATES 10
 
 #define RESIZE_FACTOR_MASK 0.5
 #define RESIZE_FACTOR_HOUGH 0.5
 
 //Câmera de cima: 1;    Câmera de baixo: 0
-#define TOP_CAMERA 1 //TODO trocar para a câmera de baixo se necessário
+#define TOP_CAMERA 0 //TODO trocar para a câmera de baixo se necessário
 
 //Parâmetros da reta para câmera de cima e câmera de baixo
 #define A_TOP 0.247
 #define B_TOP -27.6
 #define A_BOTTOM 0.198
-#define B_BOTTOM -22.2
+#define B_BOTTOM 22.2
 
 
-#ifdef CLOCK
+#ifdef clock
     std::clock_t start;
 #endif
 
@@ -101,7 +102,7 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(double hough_param1 = 28; hough_param1 < 30; hough_param1=hough_param1+2){
+        for(double hough_param1 = 70; hough_param1 < 71; hough_param1=hough_param1+2){
             for(double hough_param2 = 1; hough_param2 < 2; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, (int)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
@@ -164,6 +165,9 @@ int main(int argc, char *argv[]){
 
                     #ifdef DEBUG
                         cv::imshow("debug", frame);
+                        cv::imshow("white", Mask.whiteMask);
+                        cv::imshow("black", Mask.blackMask);
+                        cv::imshow("green", Mask.greenMask);
 
                         char c=(char)cv::waitKey(0);
                         // If the frame is empty or esc, break immediately
@@ -206,8 +210,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.12; pixel_param1 < 0.13; pixel_param1=pixel_param1+0.02){
-            for(float pixel_param2 = 0.12; pixel_param2 < 0.13; pixel_param2=pixel_param2+0.02){
+        for(float pixel_param1 = 0.01; pixel_param1 < 0.40; pixel_param1=pixel_param1+0.02){
+            for(float pixel_param2 = 0.01; pixel_param2 < 0.20; pixel_param2=pixel_param2+0.02){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, (double)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
@@ -261,7 +265,7 @@ int main(int argc, char *argv[]){
                                                     cvRound(circles[i][1]*RESIZE_FACTOR_MASK/RESIZE_FACTOR_HOUGH),
                                                     cvRound(circles[i][2]*RESIZE_FACTOR_MASK/RESIZE_FACTOR_HOUGH));
 
-                            if(pixelChecker.run(circles_mask, Mask.whiteMask, Mask.blackMask, frame_for_mask) && sizeChecker.run(circles[i])){
+                            if(pixelChecker.run(circles_mask, Mask.whiteMask, Mask.blackMask, frame_for_mask)/* && sizeChecker.run(circles[i])*/){
                                 center.x = cvRound(circles[i][0]/RESIZE_FACTOR_HOUGH);
                                 center.y = cvRound(circles[i][1]/RESIZE_FACTOR_HOUGH);
                                 radius = cvRound(circles[i][2]/RESIZE_FACTOR_HOUGH);

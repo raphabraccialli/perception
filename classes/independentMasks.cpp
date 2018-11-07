@@ -39,5 +39,6 @@ void independentMasks::generateMask(cv::Mat frame){
 
     cv::bitwise_not(this->greenMask, notGreenMask);
     cv::bitwise_and(this->whiteMask, notGreenMask, this->whiteMask);
+    cv::bitwise_and(this->blackMask, notGreenMask, this->blackMask);
 
 }

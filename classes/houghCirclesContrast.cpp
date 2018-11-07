@@ -29,6 +29,7 @@ std::vector<cv::Vec3f> houghCirclesContrast::run(cv::Mat frame){
 
     // resize
     cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+    cv::imshow("gray_masked", gray);
 
     cv::HoughCircles( gray, circles, CV_HOUGH_GRADIENT, dp, minDist, param1, param2, minRadius, maxRadius );
 

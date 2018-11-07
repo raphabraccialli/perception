@@ -11,9 +11,13 @@ sizeCheck::sizeCheck(float a, float b){
 }
 
 bool sizeCheck::run(cv::Vec3f circle){
+	
 	float expected_radius = this->a * cvRound(circle[1]) + this->b;
-	float tolerance = 0.5;
+
+	float tolerance = 0.2;
 	tolerance *= expected_radius; 
+
+	// std::cout << circle[2] << "    " << expected_radius << "    " << tolerance << std::endl;
 
 	//Tolerância para o raio da bola em 20%
 	//Exclui candidatos com raior maior ou menor do que o esperado
