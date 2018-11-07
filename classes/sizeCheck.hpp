@@ -26,7 +26,7 @@ public:
 
 	float a, b;
 
-	bool run(cv::Point center, int radius);
+	bool run(cv::Vec3f circle);
 };
 
 #endif

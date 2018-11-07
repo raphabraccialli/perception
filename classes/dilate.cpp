@@ -2,7 +2,7 @@
 
 //#define DEBUG 1
 
-void dilate::setDilation(int erosion_elem, int erosion_size){
+void dilate::setDilation(int erosion_elem, float erosion_size){
     int erosion_type;
     if( erosion_elem == 0 ){ erosion_type = cv::MORPH_RECT; }
     else if( erosion_elem == 1 ){ erosion_type = cv::MORPH_CROSS; }

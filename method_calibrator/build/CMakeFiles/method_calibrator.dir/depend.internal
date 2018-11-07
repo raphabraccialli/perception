@@ -307,6 +307,7 @@ CMakeFiles/method_calibrator.dir/main.cpp.o
  /home/livia/nao/workspace/perception/classes/houghCirclesContrast.h
  /home/livia/nao/workspace/perception/classes/independentMasks.hpp
  /home/livia/nao/workspace/perception/classes/pixelCountCheck.hpp
+ /home/livia/nao/workspace/perception/classes/sizeCheck.hpp
  /home/livia/nao/workspace/perception/method_calibrator/main.cpp
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp

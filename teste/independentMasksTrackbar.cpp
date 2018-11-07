@@ -63,7 +63,7 @@ static void on_green_h_var(int, void *)
 int main(int argc, char* argv[])
 {
     //VideoCapture cap(argc > 1 ? argv[1] : 0);
-    VideoCapture cap("../bola_parada_campo.avi");
+    VideoCapture cap("../../videos_e_gabaritos/bola_parada_favor_da_luz.avi");
 
     namedWindow("track_bars_white");
     namedWindow("track_bars_black");

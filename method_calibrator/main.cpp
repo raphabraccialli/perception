@@ -3,9 +3,10 @@
 #include "../classes/evaluator.hpp"
 #include "../classes/dilate.hpp"
 #include "../classes/independentMasks.hpp"
+#include "../classes/sizeCheck.hpp"
 #include <ctime>
 
-//#define DEBUG 1 //usar junto com debug da evaluator.cpp
+#define DEBUG 1 //usar junto com debug da evaluator.cpp
 //#define CLOCK 1 //para calcular tempo de execução
 
 #define WHITE_L_MIN 50
@@ -19,7 +20,7 @@
 #define MIN_RADIUS 5
 #define MAX_RADIUS 35
 
-#define DILATION 1
+#define DILATION 1.5
 
 #define N_OF_CANDIDATES 20
 
@@ -100,8 +101,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(double hough_param1 = 56; hough_param1 < 58; hough_param1=hough_param1+2){
-            for(double hough_param2 = 1; hough_param2 < 3; hough_param2=hough_param2+2){
+        for(double hough_param1 = 28; hough_param1 < 30; hough_param1=hough_param1+2){
+            for(double hough_param2 = 1; hough_param2 < 2; hough_param2=hough_param2+2){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, (int)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
                 
@@ -205,8 +206,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.28; pixel_param1 < 0.30; pixel_param1=pixel_param1+0.02){
-            for(float pixel_param2 = 0.08; pixel_param2 < 0.10; pixel_param2=pixel_param2+0.02){
+        for(float pixel_param1 = 0.12; pixel_param1 < 0.13; pixel_param1=pixel_param1+0.02){
+            for(float pixel_param2 = 0.12; pixel_param2 < 0.13; pixel_param2=pixel_param2+0.02){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, (double)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola
@@ -216,8 +217,10 @@ int main(int argc, char *argv[]){
                 //Escolhe a câmera
                 #if TOP_CAMERA
                     evaluator evaluator(argv[2], A_TOP, B_TOP);
+                    sizeCheck sizeChecker(A_TOP, B_TOP);
                 #else
                     evaluator evaluator(argv[2], A_BOTTOM, B_BOTTOM);
+                    sizeCheck sizeChecker(A_BOTTOM, B_BOTTOM);
                 #endif
 
 
@@ -254,7 +257,11 @@ int main(int argc, char *argv[]){
                         for(int i = 0; i < circles.size() && i < N_OF_CANDIDATES; i++){
                             //pixelcount faz a sua mágica
 
-                            if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame)){
+                            cv::Vec3f circles_mask(cvRound(circles[i][0]*RESIZE_FACTOR_MASK/RESIZE_FACTOR_HOUGH),
+                                                    cvRound(circles[i][1]*RESIZE_FACTOR_MASK/RESIZE_FACTOR_HOUGH),
+                                                    cvRound(circles[i][2]*RESIZE_FACTOR_MASK/RESIZE_FACTOR_HOUGH));
+
+                            if(pixelChecker.run(circles_mask, Mask.whiteMask, Mask.blackMask, frame_for_mask) && sizeChecker.run(circles[i])){
                                 center.x = cvRound(circles[i][0]/RESIZE_FACTOR_HOUGH);
                                 center.y = cvRound(circles[i][1]/RESIZE_FACTOR_HOUGH);
                                 radius = cvRound(circles[i][2]/RESIZE_FACTOR_HOUGH);

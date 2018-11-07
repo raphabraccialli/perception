@@ -17,7 +17,7 @@ bool pixelCountCheck::run(cv::Vec3f candidate, cv::Mat whiteMask, cv::Mat blackM
 	center.x = cvRound(candidate[0]);
     center.y = cvRound(candidate[1]);
     
-    int radius = cvRound(candidate[2]);
+    int radius = cvRound(candidate[2]*1.2);
 
 	cv::circle(canvas, center, radius, cv::Scalar(255,255,255), -1, 8, 0 );
 

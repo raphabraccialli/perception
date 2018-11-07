@@ -306,6 +306,7 @@ CMakeFiles/method_calibrator.dir/main.cpp.o: /home/livia/nao/workspace/perceptio
 CMakeFiles/method_calibrator.dir/main.cpp.o: /home/livia/nao/workspace/perception/classes/houghCirclesContrast.h
 CMakeFiles/method_calibrator.dir/main.cpp.o: /home/livia/nao/workspace/perception/classes/independentMasks.hpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: /home/livia/nao/workspace/perception/classes/pixelCountCheck.hpp
+CMakeFiles/method_calibrator.dir/main.cpp.o: /home/livia/nao/workspace/perception/classes/sizeCheck.hpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: ../main.cpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
 CMakeFiles/method_calibrator.dir/main.cpp.o: /usr/local/include/opencv2/contrib/contrib.hpp

@@ -14,7 +14,7 @@ class dilate
 {
 public:
 	dilate(){}
-	void setDilation(int erosion_elem, int erosion_size);
+	void setDilation(int erosion_elem, float erosion_size);
 	cv::Mat runDilation(cv::Mat frame);
 	cv::Mat element;
 
