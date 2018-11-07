@@ -1,1 +1,1 @@
-./build/method_calibrator ../apartamento_iluminado_bottom.avi ../apartamento_iluminado_bottom.txt 1 1
+./build/method_calibrator ../bola_parada_campo.avi ../bola_parada_campo.txt 1 1

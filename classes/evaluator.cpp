@@ -1,3 +1,4 @@
+
 #include "evaluator.hpp"
 
 //#define DEBUG 1 //usar junto com debug da main.cpp
@@ -34,10 +35,12 @@ evaluator::evaluator (cv::String file_name, float a, float b){
 
 
 int evaluator::test(cv::Point p, cv::Mat frame){
+
 	int range = (int) (this->a * (float) ballPos[index].y + this->b);
-	range += 10;
+	range /= 2;
 	//std::cout << "ballPos: " << ballPos[index] << endl;
 	//std::cout << "range: " << range << endl;
+
 	dbg_circle(frame, ballPos[index], range, 2); //amarelo raio de acerto
 	if(this->ballPos[index].x != -1){
 		if(p.x != -1){
@@ -62,8 +65,9 @@ int evaluator::test(cv::Point p, cv::Mat frame){
 			return 0;
 		}
 	}
-	
+
 }
+
 
 void evaluator::add(bool data){
 	this->score.push_back(data);

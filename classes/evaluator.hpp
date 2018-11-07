@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
@@ -18,6 +20,15 @@ public:
 	int test(cv::Point p, cv::Mat frame);
 	float evaluate();
 	void add(bool data);
+
+	//Câmera de cima
+	// Raio = +0.247*y - 27.6		R^2=0.994
+	//float a = 0.247, b = 27.6;
+
+	//Câmera de baixo 
+	// Raio = +0.198*y - 22.2		R^2=0.994
+	// float a = 0.198, b = 22.2;
+
 
 	float a, b; 						//coeficientes lineares
 	std::vector<cv::Point> ballPos;				//vector of coordinates of the center of the ball in each frame

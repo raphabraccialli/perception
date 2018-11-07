@@ -21,13 +21,13 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata)
         posX.push_back(x);
         posY.push_back(y);
     }
-    else if  ( event == EVENT_RBUTTONDOWN )
-    {
-        cout << "Right button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
-        flag = true;
-        posX.push_back(-1);
-        posY.push_back(-1);
-    }
+    // else if  ( event == EVENT_RBUTTONDOWN )
+    // {
+    //     cout << "Right button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
+    //     flag = true;
+    //     posX.push_back(-1);
+    //     posY.push_back(-1);
+    // }
     /*else if  ( event == EVENT_MBUTTONDOWN )
     {
         cout << "Middle button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
@@ -39,8 +39,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata)
 }
  
 int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
-  int skip;
-  bool stop = false;
+  int skip, fps;
 
   // Create a VideoCapture object and open the input file
   // If the input is the web camera, pass 0 instead of the video file name
@@ -86,25 +85,23 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
   	while(!flag){
   		char c=(char)waitKey(50);
 	    if(c==27){
-	    	stop = true;
+        posX.push_back(-1);
+        posY.push_back(-1);
 	    	break;
 	    }
   	}
   	flag = false;
 
-  	if(stop)
-  		break;
-
-	for(int i=0; i < skip; i++)
-		cap >> frame;
+  	for(int i=0; i < skip; i++)
+  		cap >> frame;
   }
 
-  	vector<int>::iterator itX, itY;  
+  vector<int>::iterator itX, itY;  
 
 	ofstream myfile(argv[3]);
 
-	//Saves FPS
-	myfile << fps_new << endl;
+	//Saves SKIP
+	myfile << skip << endl;
 
 
 	if(myfile.is_open()){
@@ -117,7 +114,6 @@ int main(int argc, char *argv[]){ //*argv == argv[0], *(argv+1) == argv[1]
 			itX++;
 			itY++;
 		}
-
   		myfile.close();
 	}
 	else

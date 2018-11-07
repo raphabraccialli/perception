@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
@@ -15,8 +16,17 @@ class sizeCheck
 public:
 	sizeCheck(float a, float b);
 
+	//Câmera de cima
+	// Raio = +0.247*y - 27.6		R^2=0.994
+	//float a = 0.247, b = 27.6;
+
+	//Câmera de baixo 
+	// Raio = +0.198*y - 22.2		R^2=0.994
+	// float a = 0.198, b = 22.2;
+
 	float a, b;
-	int run(std::vector<cv::Vec3f> circles);
+
+	bool run(cv::Point center, int radius);
 };
 
 #endif

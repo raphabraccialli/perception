@@ -1,3 +1,4 @@
+
 #include "sizeCheck.hpp"
 
 #define DEBUG 1
@@ -9,13 +10,16 @@ sizeCheck::sizeCheck(float a, float b){
 
 }
 
-int sizeCheck::run(std::vector<cv::Vec3f> circles){
+bool sizeCheck::run(cv::Point center, int radius){
 	
-	for(int i=0; i < circles.size(); i++){
-		float expected = (circles[i][1] * a + b);
-		if(abs(circles[i][2]-expected)/expected > SIZE_VAR)
-			circles.erase(circles.begin() + i);
-	}
+	float expected_radius = this->a * center.y - this->b;
 
-	return 0; //TODO return vector?
+	//Tolerância para o raio da bola em 20%
+	//Exclui candidatos com raior maior ou menor do que o esperado
+	if (radius > expected_radius*1.2) 
+		return false;
+	if (radius < expected_radius*0.8) 
+		return false;
+	else
+		return true;
 }
