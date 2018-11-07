@@ -12,7 +12,7 @@ houghCirclesContrast::houghCirclesContrast(double param1, double param2, double 
 
 std::vector<cv::Vec3f> houghCirclesContrast::run(cv::Mat frame){
 
-    this->dp = 1;
+    this->dp = 4;
 
     /*
     dp – Inverse ratio of the accumulator resolution to the image resolution. For example, if dp=1 , the accumulator has the same resolution as the input image. If dp=2 , the accumulator has half as big width and height.

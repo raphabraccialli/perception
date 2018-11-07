@@ -4,6 +4,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/sizeCheck.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/evaluator.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o"
+  "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o"
   "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o"

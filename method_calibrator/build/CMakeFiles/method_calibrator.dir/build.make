@@ -167,9 +167,32 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhu
 
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o
 
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /home/livia/nao/workspace/perception/classes/blob.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o -c /home/livia/nao/workspace/perception/classes/blob.cpp
+
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/livia/nao/workspace/perception/classes/blob.cpp > CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.i
+
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/livia/nao/workspace/perception/classes/blob.cpp -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.s
+
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.requires:
+.PHONY : CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.requires
+
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.provides: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.requires
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.provides.build
+.PHONY : CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.provides
+
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.provides.build: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o
+
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o: /home/livia/nao/workspace/perception/classes/quaternaryMask.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o -c /home/livia/nao/workspace/perception/classes/quaternaryMask.cpp
 
@@ -192,7 +215,7 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/qua
 
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o: /home/livia/nao/workspace/perception/classes/independentMasks.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o -c /home/livia/nao/workspace/perception/classes/independentMasks.cpp
 
@@ -215,7 +238,7 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/ind
 
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o: /home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o -c /home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp
 
@@ -238,7 +261,7 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/hou
 
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o: /home/livia/nao/workspace/perception/classes/dilate.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o -c /home/livia/nao/workspace/perception/classes/dilate.cpp
 
@@ -261,7 +284,7 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dil
 
 CMakeFiles/method_calibrator.dir/main.cpp.o: CMakeFiles/method_calibrator.dir/flags.make
 CMakeFiles/method_calibrator.dir/main.cpp.o: ../main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/livia/nao/workspace/perception/method_calibrator/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/method_calibrator.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/method_calibrator.dir/main.cpp.o -c /home/livia/nao/workspace/perception/method_calibrator/main.cpp
 
@@ -289,6 +312,7 @@ method_calibrator_OBJECTS = \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/sizeCheck.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/evaluator.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o" \
+"CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o" \
 "CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o" \
@@ -303,6 +327,7 @@ method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/per
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/sizeCheck.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/evaluator.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o
+method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o
 method_calibrator: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o
@@ -355,6 +380,7 @@ CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/sizeCheck.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/evaluator.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o.requires
+CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/quaternaryMask.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/independentMasks.cpp.o.requires
 CMakeFiles/method_calibrator.dir/requires: CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/houghCirclesContrast.cpp.o.requires

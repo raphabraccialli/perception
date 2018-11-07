@@ -21,7 +21,8 @@
 
 #define N_OF_CANDIDATES 10
 
-#define RESIZE_FACTOR 0.5
+#define RESIZE_FACTOR_MASK 0.5
+#define RESIZE_FACTOR_HOUGH 0.5
 
 //Câmera de cima: 1;    Câmera de baixo: 0
 #define TOP_CAMERA 1 //TODO trocar para a câmera de baixo se necessário
@@ -52,8 +53,6 @@ int main(int argc, char *argv[]){
         return -1;
     }
 
-
-    float resize_factor = RESIZE_FACTOR;
 
     cv::Mat frame, frame_resized;
     std::vector<cv::Vec3f> circles;
@@ -93,23 +92,23 @@ int main(int argc, char *argv[]){
                 while(1){
                     // Capture frame-by-frame in the specified frame rate fps_new
                     cap >> frame;
-                    cv::Mat frame_masked;
 
                     // If the frame is empty, break immediately
                     if (frame.empty())
                       break;
 
+                    cv::Mat frame_for_mask, frame_for_hough, green_roi, frame_for_hough_masked;
 
-                    resize(frame, frame_resized, cv::Size(), resize_factor, resize_factor);
-                    Mask.generateMask(frame_resized);
-                    cv::Mat greenROI = Dilater.runDilation(Mask.greenMask);
-                    resize(greenROI, greenROI, cv::Size(), 1/resize_factor, 1/resize_factor);
-                    frame.copyTo(frame_masked, greenROI);
-                    imshow("frame_masked", frame_masked);
+                    resize(frame, frame_for_mask, cv::Size(), RESIZE_FACTOR_MASK, RESIZE_FACTOR_MASK);
+                    resize(frame, frame_for_hough, cv::Size(), RESIZE_FACTOR_HOUGH, RESIZE_FACTOR_HOUGH);
+                    Mask.generateMask(frame_for_mask);
+                    green_roi = Dilater.runDilation(Mask.greenMask);
+                    resize(green_roi, green_roi, cv::Size(), RESIZE_FACTOR_HOUGH/RESIZE_FACTOR_MASK, RESIZE_FACTOR_HOUGH/RESIZE_FACTOR_MASK);
+                    frame_for_hough.copyTo(frame_for_hough_masked, green_roi);
 
                     // frame * greenMask para eliminar circulos fora do campo
                     //(e conferir se ajuda no processamento)
-                    circles = hough.run(frame_masked);
+                    circles = hough.run(frame_for_hough_masked);
 
                     cv::Point center(-1, -1);
                     int radius = -1;
@@ -119,9 +118,9 @@ int main(int argc, char *argv[]){
                         //std::cout << circles.size() << std::endl;
                         //Procura candidato valido entre as N_OF_CANDIDATES instancias
                         for(int i = 0; i < circles.size() && i < N_OF_CANDIDATES; i++){
-                            center.x = cvRound(circles[i][0]);
-                            center.y = cvRound(circles[i][1]);
-                            radius = cvRound(circles[i][2]);
+                            center.x = cvRound(circles[i][0]/RESIZE_FACTOR_HOUGH);
+                            center.y = cvRound(circles[i][1]/RESIZE_FACTOR_HOUGH);
+                            radius = cvRound(circles[i][2]/RESIZE_FACTOR_HOUGH);
                             #ifdef DEBUG
                             cv::circle( frame, center, radius, cv::Scalar(255,0,0), 3, 8, 0 );
                             #endif
@@ -205,16 +204,20 @@ int main(int argc, char *argv[]){
                     if (frame.empty())
                       break;
 
-                    resize(frame, frame_resized, cv::Size(), resize_factor, resize_factor);
+                    cv::Mat frame_resized;
 
-                    cv::Mat frame_resized_masked;
-                    Mask.generateMask(frame_resized);
-                    cv::Mat greenROI = Dilater.runDilation(Mask.greenMask);
-                    frame_resized.copyTo(frame_resized_masked, greenROI);
+                    cv::Mat frame_for_mask, frame_for_hough, green_roi, frame_for_hough_masked;
+
+                    resize(frame, frame_for_mask, cv::Size(), RESIZE_FACTOR_MASK, RESIZE_FACTOR_MASK);
+                    resize(frame, frame_for_hough, cv::Size(), RESIZE_FACTOR_HOUGH, RESIZE_FACTOR_HOUGH);
+                    Mask.generateMask(frame_for_mask);
+                    green_roi = Dilater.runDilation(Mask.greenMask);
+                    resize(green_roi, green_roi, cv::Size(), RESIZE_FACTOR_HOUGH/RESIZE_FACTOR_MASK, RESIZE_FACTOR_HOUGH/RESIZE_FACTOR_MASK);
+                    frame_for_hough.copyTo(frame_for_hough_masked, green_roi);
 
                     // frame * greenMask para eliminar circulos fora do campo
                     //(e conferir se ajuda no processamento)
-                    circles = hough.run(frame_resized_masked);
+                    circles = hough.run(frame_for_hough_masked);
                     
                     cv::Point center(-1, -1);
                     int radius = -1;
@@ -226,11 +229,11 @@ int main(int argc, char *argv[]){
                         for(int i = 0; i < circles.size() && i < N_OF_CANDIDATES; i++){
                             //pixelcount faz a sua mágica
 
-                            if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame_resized)){
-                                center.x = cvRound(circles[i][0]/resize_factor);
-                                center.y = cvRound(circles[i][1]/resize_factor);
-                                radius = cvRound(circles[i][2]/resize_factor);
-                                if(evaluator.test(center, frame_resized)){
+                            if(pixelChecker.run(circles[i], Mask.whiteMask, Mask.blackMask, frame)){
+                                center.x = cvRound(circles[i][0]/RESIZE_FACTOR_HOUGH);
+                                center.y = cvRound(circles[i][1]/RESIZE_FACTOR_HOUGH);
+                                radius = cvRound(circles[i][2]/RESIZE_FACTOR_HOUGH);
+                                if(evaluator.test(center, frame)){
                                     evaluator.add(true);
                                     flag = false;
                                 }

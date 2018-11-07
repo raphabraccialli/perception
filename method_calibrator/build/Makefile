@@ -138,6 +138,30 @@ home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.s:
 	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.s
 .PHONY : home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.s
 
+home/livia/nao/workspace/perception/classes/blob.o: home/livia/nao/workspace/perception/classes/blob.cpp.o
+.PHONY : home/livia/nao/workspace/perception/classes/blob.o
+
+# target to build an object file
+home/livia/nao/workspace/perception/classes/blob.cpp.o:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o
+.PHONY : home/livia/nao/workspace/perception/classes/blob.cpp.o
+
+home/livia/nao/workspace/perception/classes/blob.i: home/livia/nao/workspace/perception/classes/blob.cpp.i
+.PHONY : home/livia/nao/workspace/perception/classes/blob.i
+
+# target to preprocess a source file
+home/livia/nao/workspace/perception/classes/blob.cpp.i:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.i
+.PHONY : home/livia/nao/workspace/perception/classes/blob.cpp.i
+
+home/livia/nao/workspace/perception/classes/blob.s: home/livia/nao/workspace/perception/classes/blob.cpp.s
+.PHONY : home/livia/nao/workspace/perception/classes/blob.s
+
+# target to generate assembly for a file
+home/livia/nao/workspace/perception/classes/blob.cpp.s:
+	$(MAKE) -f CMakeFiles/method_calibrator.dir/build.make CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.s
+.PHONY : home/livia/nao/workspace/perception/classes/blob.cpp.s
+
 home/livia/nao/workspace/perception/classes/dilate.o: home/livia/nao/workspace/perception/classes/dilate.cpp.o
 .PHONY : home/livia/nao/workspace/perception/classes/dilate.o
 
@@ -366,6 +390,9 @@ help:
 	@echo "... home/livia/nao/workspace/perception/classes/bhuman_ish.o"
 	@echo "... home/livia/nao/workspace/perception/classes/bhuman_ish.i"
 	@echo "... home/livia/nao/workspace/perception/classes/bhuman_ish.s"
+	@echo "... home/livia/nao/workspace/perception/classes/blob.o"
+	@echo "... home/livia/nao/workspace/perception/classes/blob.i"
+	@echo "... home/livia/nao/workspace/perception/classes/blob.s"
 	@echo "... home/livia/nao/workspace/perception/classes/dilate.o"
 	@echo "... home/livia/nao/workspace/perception/classes/dilate.i"
 	@echo "... home/livia/nao/workspace/perception/classes/dilate.s"

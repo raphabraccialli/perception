@@ -26,6 +26,26 @@ string
 vector
 -
 
+/home/livia/nao/workspace/perception/classes/blob.cpp
+blob.hpp
+/home/livia/nao/workspace/perception/classes/blob.hpp
+
+/home/livia/nao/workspace/perception/classes/blob.hpp
+opencv2/opencv.hpp
+/home/livia/nao/workspace/perception/classes/opencv2/opencv.hpp
+iostream
+-
+stdlib.h
+-
+fstream
+-
+iterator
+-
+string
+-
+vector
+-
+
 /home/livia/nao/workspace/perception/classes/dilate.cpp
 dilate.hpp
 /home/livia/nao/workspace/perception/classes/dilate.hpp

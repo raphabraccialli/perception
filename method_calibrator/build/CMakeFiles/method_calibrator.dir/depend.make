@@ -31,6 +31,36 @@ CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhu
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o: /usr/local/include/opencv2/video/tracking.hpp
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/bhuman_ish.cpp.o: /usr/local/include/opencv2/video/video.hpp
 
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /home/livia/nao/workspace/perception/classes/blob.cpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /home/livia/nao/workspace/perception/classes/blob.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/contrib/contrib.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/contrib/openfabmap.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/contrib/retina.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/core.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/core_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/mat.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/operations.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/types_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/core/version.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/features2d/features2d.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/flann/config.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/flann/defines.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/flann/miniflann.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/highgui/highgui.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/highgui/highgui_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/imgproc/imgproc.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/imgproc/imgproc_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/imgproc/types_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/ml/ml.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/objdetect/objdetect.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/opencv.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/photo/photo.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/photo/photo_c.h
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/video/background_segm.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/video/tracking.hpp
+CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/blob.cpp.o: /usr/local/include/opencv2/video/video.hpp
+
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o: /home/livia/nao/workspace/perception/classes/dilate.cpp
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o: /home/livia/nao/workspace/perception/classes/dilate.hpp
 CMakeFiles/method_calibrator.dir/home/livia/nao/workspace/perception/classes/dilate.cpp.o: /usr/local/include/opencv2/calib3d/calib3d.hpp

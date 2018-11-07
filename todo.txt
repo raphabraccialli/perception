@@ -1,6 +1,0 @@
-- fazerSizeCheck
-- avaliador com raio da bola /2 ou /4
-- KALMAN
-- ver raio do acumulador no houghcircles
-- hough com resolução maxima
-	- resize na máscara de verde 0.25->1 (testar com 0.2)
