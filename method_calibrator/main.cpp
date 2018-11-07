@@ -8,11 +8,11 @@
 
 #define DEBUG 1 //usar junto com debug da evaluator.cpp
 
-#define BLACK_L_MAX  60//45//64 //196
-#define WHITE_L_MIN 179//170//169 //200
-#define GREEN_H_MEAN 78//55//65 //50
-#define GREEN_H_VAR 21//18//23//20
-#define GREEN_S_MIN 34//45//7//40
+#define BLACK_L_MAX  56//45//64 //196
+#define WHITE_L_MIN 134//170//169 //200
+#define GREEN_H_MEAN 72///55//65 //50
+#define GREEN_H_VAR 14//18//23//20
+#define GREEN_S_MIN 36//45//7//40
 
 #define MIN_RADIUS 10
 #define MAX_RADIUS 30

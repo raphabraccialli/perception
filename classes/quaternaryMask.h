@@ -15,11 +15,11 @@ class quaternaryMask
 public:
     quaternaryMask(){}
 
-    int blackLMax, whiteLMin, greenHMean, greenHVar, greenSMin;
+    int blackLMax, whiteLMin, greenHMean, greenHVar, greenSMin, gray_thresh;
 
     cv::Mat blackMask, whiteMask, greenMask;
 
-    void setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin);
+    void setMask(int blackLMax, int whiteLMin, int greenHMean, int greenHVar, int greenSMin, int gray_thresh);
     void generateMask(cv::Mat image);
 
 };
