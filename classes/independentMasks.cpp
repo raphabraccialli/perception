@@ -27,7 +27,7 @@ void independentMasks::generateMask(cv::Mat frame){
     // we start by detecting the easiest one so we can move to more difficult ones later
     // We should go: white, green, black, others (left)
 
-      // White
+    // White
     cv::inRange(frame_HLS, cv::Scalar(0, this->whiteLMin, 0), cv::Scalar(180, 255, whiteSMax), this->whiteMask);
 
     // Black

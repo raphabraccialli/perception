@@ -7,29 +7,45 @@
 #include <ctime>
 
 
-#define DEBUG 1 //usar junto com debug da evaluator.cpp
+//#define DEBUG 1 //usar junto com debug da evaluator.cpp
 //#define CLOCK 1 //para calcular tempo de execução
 
-#define WHITE_L_MIN 180
-#define WHITE_S_MAX 255
-#define BLACK_L_MAX 120
-#define GREEN_L_MAX 170
-#define GREEN_H_MEAN 75
+#define WHITE_L_MIN 50
+#define WHITE_S_MAX 255 // tirar
+#define BLACK_L_MAX 40
+#define GREEN_L_MAX 255
+#define GREEN_H_MEAN 55
 #define GREEN_H_VAR 15
-#define GREEN_S_MIN 20
+#define GREEN_S_MIN 30
 
-#define MIN_RADIUS 30
-#define MAX_RADIUS 80
+// #define MIN_RADIUS 30 // arrumar esses aqui
+// #define MAX_RADIUS 80 // bottom
 
-#define DILATION 2
+#define MIN_RADIUS 5 // arrumar esses aqui
+#define MAX_RADIUS 35
 
-#define N_OF_CANDIDATES 10
+#define DILATION 1
+
+#define N_OF_CANDIDATES 20
+
+
+#define HOUGH_VAR 2
+#define HOUGH1_MIN 2
+#define HOUGH1_MAX 72
+#define HOUGH2_MIN 1
+#define HOUGH2_MAX 20
+
+#define PIXEL_VAR 0.02
+#define PIXEL1_MIN 0.01
+#define PIXEL1_MAX 0.4
+#define PIXEL2_MIN 0.01
+#define PIXEL2_MAX 0.20
 
 #define RESIZE_FACTOR_MASK 0.5
 #define RESIZE_FACTOR_HOUGH 0.5
 
 //Câmera de cima: 1;    Câmera de baixo: 0
-#define TOP_CAMERA 0 //TODO trocar para a câmera de baixo se necessário
+#define TOP_CAMERA 1 //TODO trocar para a câmera de baixo se necessário
 
 //Parâmetros da reta para câmera de cima e câmera de baixo
 #define A_TOP 0.247
@@ -102,8 +118,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[3])){
-        for(double hough_param1 = 70; hough_param1 < 71; hough_param1=hough_param1+2){
-            for(double hough_param2 = 1; hough_param2 < 2; hough_param2=hough_param2+2){
+        for(double hough_param1 = HOUGH1_MIN; hough_param1 < HOUGH1_MAX; hough_param1=hough_param1+HOUGH_VAR){
+            for(double hough_param2 = HOUGH2_MIN; hough_param2 < HOUGH1_MAX; hough_param2=hough_param2+HOUGH_VAR){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(hough_param1, hough_param2, (int)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
                 
@@ -210,8 +226,8 @@ int main(int argc, char *argv[]){
     ////////////////////////////////////////////////////////////
     // só roda se parametro for passado na execução
     if(std::atoi(argv[4])){
-        for(float pixel_param1 = 0.01; pixel_param1 < 0.40; pixel_param1=pixel_param1+0.02){
-            for(float pixel_param2 = 0.01; pixel_param2 < 0.20; pixel_param2=pixel_param2+0.02){
+        for(float pixel_param1 = PIXEL1_MIN; pixel_param1 < PIXEL1_MAX; pixel_param1=pixel_param1+PIXEL_VAR){
+            for(float pixel_param2 = PIXEL2_MIN; pixel_param2 < PIXEL2_MAX; pixel_param2=pixel_param2+PIXEL_VAR){
                 cap.set(CV_CAP_PROP_POS_FRAMES, 0);
                 houghCirclesContrast hough(best.hough_param1, best.hough_param2, (double)MIN_RADIUS/2*RESIZE_FACTOR_HOUGH, (int)MIN_RADIUS*RESIZE_FACTOR_HOUGH, (int)MAX_RADIUS*RESIZE_FACTOR_HOUGH);
                 //inicia pixelCountCheck com porcentagem mínima de branco e preto na area da bola

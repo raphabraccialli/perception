@@ -63,8 +63,8 @@ static void on_green_h_var(int, void *)
 int main(int argc, char* argv[])
 {
     //VideoCapture cap(argc > 1 ? argv[1] : 0);
-    VideoCapture cap("../../videos_e_gabaritos/bola_parada_favor_da_luz_bottom.avi");
-    VideoCapture cap2("../../videos_e_gabaritos/bola_parada_campo_bottom.avi");
+    VideoCapture cap("../../videos_e_gabaritos/bola_parada_campo.avi");
+    VideoCapture cap2("../../videos_e_gabaritos/bola_parada_favor_da_luz.avi");
 
     namedWindow("track_bars_white");
     namedWindow("track_bars_black");
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
     // White
     createTrackbar("White L Min", "track_bars_white", &whiteLMin, max_value, on_white_l_min);
     createTrackbar("Light Gray S Max", "track_bars_white", &lightGraySMax, max_value, on_light_gray_s_max);
-    createTrackbar("Light Gray L Min", "track_bars_white", &lightGrayLMin, max_value_H, on_light_gray_l_min);
+    createTrackbar("Light Gray L Min", "track_bars_white", &lightGrayLMin, max_value, on_light_gray_l_min);
     // Black
     createTrackbar("Black L Max", "track_bars_black", &blackLMax, max_value_H, on_black_l_max);
     createTrackbar("Dark Gray S Max", "track_bars_black", &darkGraySMax, max_value, on_dark_gray_s_max);
@@ -117,6 +117,7 @@ int main(int argc, char* argv[])
         bitwise_or(black_mask, white_mask, black_and_white_mask);
         bitwise_not(green_mask, not_green_mask);
         bitwise_and(white_mask, not_green_mask, white_mask);
+        bitwise_and(black_mask, not_green_mask, black_mask);
 
 
         // // Show the frames
